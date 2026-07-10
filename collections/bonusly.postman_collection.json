@@ -1,0 +1,300 @@
+{
+  "info": {
+    "name": "Bonusly API",
+    "description": "The REST API behind the Bonusly employee recognition and rewards platform. Covers bonuses, users, the reward catalog, redemptions, company settings, and analytics. Base URL: https://bonus.ly/api/v1. All requests require a Bearer personal access token (PAT) with the appropriate read/write/administer scope; a token missing a scope returns 403. API access is available on Bonusly's paid plans.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{bearerToken}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://bonus.ly/api/v1", "type": "string" },
+    { "key": "bearerToken", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Bonuses",
+      "item": [
+        {
+          "name": "List bonuses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/bonuses?limit=20", "host": ["{{baseUrl}}"], "path": ["bonuses"], "query": [{ "key": "limit", "value": "20" }] },
+            "description": "Lists bonuses, most recent first, with optional user, hashtag, and date filters."
+          }
+        },
+        {
+          "name": "Create a bonus",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"reason\": \"+10 @alice for shipping the release #teamwork\"\n}" },
+            "url": { "raw": "{{baseUrl}}/bonuses", "host": ["{{baseUrl}}"], "path": ["bonuses"] },
+            "description": "Creates a bonus. The reason names one or more receivers, an amount, and a hashtag."
+          }
+        },
+        {
+          "name": "Retrieve a bonus",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/bonuses/:id", "host": ["{{baseUrl}}"], "path": ["bonuses", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a single bonus by ID."
+          }
+        },
+        {
+          "name": "Update a bonus",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"reason\": \"+10 @alice for the release #teamwork\"\n}" },
+            "url": { "raw": "{{baseUrl}}/bonuses/:id", "host": ["{{baseUrl}}"], "path": ["bonuses", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Updates the reason text of an existing bonus."
+          }
+        },
+        {
+          "name": "Delete a bonus",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/bonuses/:id", "host": ["{{baseUrl}}"], "path": ["bonuses", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Deletes a bonus by ID."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "List users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users?limit=20", "host": ["{{baseUrl}}"], "path": ["users"], "query": [{ "key": "limit", "value": "20" }] },
+            "description": "Lists users in the company."
+          }
+        },
+        {
+          "name": "Create a user",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"new.user@example.com\",\n  \"first_name\": \"New\",\n  \"last_name\": \"User\"\n}" },
+            "url": { "raw": "{{baseUrl}}/users", "host": ["{{baseUrl}}"], "path": ["users"] },
+            "description": "Invites a new user. Requires an administrator-scoped token."
+          }
+        },
+        {
+          "name": "Retrieve the authenticated user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/me", "host": ["{{baseUrl}}"], "path": ["users", "me"] },
+            "description": "Returns the user tied to the access token."
+          }
+        },
+        {
+          "name": "Retrieve a user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/:id", "host": ["{{baseUrl}}"], "path": ["users", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a single user by ID."
+          }
+        },
+        {
+          "name": "Update a user",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"display_name\": \"Updated Name\"\n}" },
+            "url": { "raw": "{{baseUrl}}/users/:id", "host": ["{{baseUrl}}"], "path": ["users", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Updates a user's profile. Requires an administrator-scoped token."
+          }
+        },
+        {
+          "name": "Deactivate a user",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/:id", "host": ["{{baseUrl}}"], "path": ["users", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Deactivates (archives) a user. Requires an administrator-scoped token."
+          }
+        },
+        {
+          "name": "Autocomplete users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/autocomplete?query=al", "host": ["{{baseUrl}}"], "path": ["users", "autocomplete"], "query": [{ "key": "query", "value": "al" }] },
+            "description": "Returns users matching a partial name or email."
+          }
+        },
+        {
+          "name": "List a user's bonuses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/:id/bonuses", "host": ["{{baseUrl}}"], "path": ["users", ":id", "bonuses"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Lists bonuses given or received by a user."
+          }
+        },
+        {
+          "name": "List a user's redemptions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/users/:id/redemptions", "host": ["{{baseUrl}}"], "path": ["users", ":id", "redemptions"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Lists redemptions made by a user."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rewards",
+      "item": [
+        {
+          "name": "List rewards",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/rewards?country=US", "host": ["{{baseUrl}}"], "path": ["rewards"], "query": [{ "key": "country", "value": "US" }] },
+            "description": "Lists rewards in the redemption catalog - gift cards, donations, and custom rewards - filterable by country."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Redemptions",
+      "item": [
+        {
+          "name": "List redemptions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/redemptions?limit=20", "host": ["{{baseUrl}}"], "path": ["redemptions"], "query": [{ "key": "limit", "value": "20" }] },
+            "description": "Lists redemptions across the company."
+          }
+        },
+        {
+          "name": "Retrieve a redemption",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/redemptions/:id", "host": ["{{baseUrl}}"], "path": ["redemptions", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Retrieves a single redemption by ID."
+          }
+        },
+        {
+          "name": "Create a user redemption",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"user_id\": \"\",\n  \"reward_request\": \"\",\n  \"denomination\": 25\n}" },
+            "url": { "raw": "{{baseUrl}}/user_redemptions", "host": ["{{baseUrl}}"], "path": ["user_redemptions"] },
+            "description": "Redeems a reward for a user, spending points from their balance."
+          }
+        },
+        {
+          "name": "List custom reward redemptions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/custom_reward_redemptions", "host": ["{{baseUrl}}"], "path": ["custom_reward_redemptions"] },
+            "description": "Lists redemptions of custom company rewards."
+          }
+        },
+        {
+          "name": "Approve custom reward redemptions",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"ids\": []\n}" },
+            "url": { "raw": "{{baseUrl}}/custom_reward_redemptions/approve", "host": ["{{baseUrl}}"], "path": ["custom_reward_redemptions", "approve"] },
+            "description": "Approves pending custom reward redemptions. Requires an administrator-scoped token."
+          }
+        },
+        {
+          "name": "Fulfill custom reward redemptions",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"ids\": []\n}" },
+            "url": { "raw": "{{baseUrl}}/custom_reward_redemptions/fulfill", "host": ["{{baseUrl}}"], "path": ["custom_reward_redemptions", "fulfill"] },
+            "description": "Marks approved custom reward redemptions as fulfilled. Requires an administrator-scoped token."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "item": [
+        {
+          "name": "Analytics healthcheck",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/analytics/health", "host": ["{{baseUrl}}"], "path": ["analytics", "health"] },
+            "description": "Returns the availability status of the analytics subsystem."
+          }
+        },
+        {
+          "name": "Queue a recognition events snapshot",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/analytics/snapshots/recognition_events", "host": ["{{baseUrl}}"], "path": ["analytics", "snapshots", "recognition_events"] },
+            "description": "Queues an asynchronous snapshot of recognition events; returns a snapshot ID to poll."
+          }
+        },
+        {
+          "name": "Get snapshot status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/analytics/snapshots/:id", "host": ["{{baseUrl}}"], "path": ["analytics", "snapshots", ":id"], "variable": [{ "key": "id", "value": "" }] },
+            "description": "Returns the processing status of a queued analytics snapshot."
+          }
+        },
+        {
+          "name": "List recognition events",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/analytics/recognition_events", "host": ["{{baseUrl}}"], "path": ["analytics", "recognition_events"] },
+            "description": "Lists the rows of a completed recognition events snapshot."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Company",
+      "item": [
+        {
+          "name": "Retrieve company",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/company", "host": ["{{baseUrl}}"], "path": ["company"] },
+            "description": "Retrieves company-level settings for the account tied to the token."
+          }
+        },
+        {
+          "name": "Update company",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}" },
+            "url": { "raw": "{{baseUrl}}/company", "host": ["{{baseUrl}}"], "path": ["company"] },
+            "description": "Updates company-level settings. Requires an administrator-scoped token."
+          }
+        }
+      ]
+    }
+  ]
+}

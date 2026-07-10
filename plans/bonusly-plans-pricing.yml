@@ -1,0 +1,149 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Bonusly
+providerId: bonusly
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Employee Recognition
+- Rewards
+- Employee Engagement
+- HR
+- Plans
+description: >-
+  Bonusly is priced per employee per month (PEPM) across three tiers - a free
+  tier capped at a small number of users, a self-serve Team tier, and a
+  custom-quoted Organization tier - plus a Bizy AI add-on. API access is a paid
+  feature: the free tier is intended for evaluation, and integrations, HRIS
+  connections, and the REST API come with the paid Team and Organization plans.
+  The published list prices below reflect Bonusly's public pricing page. Note
+  that a Bonusly deployment has two cost components - the platform subscription
+  (the PEPM fee below) and the separately funded reward budget (the points
+  employees actually redeem for gift cards and rewards). Legacy plan names
+  (Appreciate, Connect, Achieve) are still supported for existing customers but
+  are no longer sold to new customers.
+notes: >-
+  Prices are list prices from bonusly.com/pricing and may change; the
+  Organization tier is custom-quoted. The reward budget is not part of the
+  subscription price and is billed separately based on points redeemed. Verify
+  current PEPM rates and which plan unlocks API access during reconciliation.
+sources:
+- https://bonusly.com/pricing
+- https://help.bonus.ly/en/articles/13320193-paying-for-bonusly-subscriptions
+- https://help.bonus.ly/en/articles/1258685-connecting-to-the-bonusly-api
+- https://docs.bonus.ly/
+plans:
+- id: bonusly-free
+  name: Free
+  type: free
+  description: >-
+    Free-forever tier for small teams, capped at up to 8 users. Includes peer
+    recognition, Slack and Microsoft Teams integrations, and the mobile apps.
+    Intended for evaluation; the REST API and HRIS integrations are reserved
+    for paid plans.
+  entries:
+  - label: Users
+    name: users
+    type: usage
+    metric: seats
+    limit: 8
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '0'
+    userMultiplied: false
+  elements:
+  - name: Peer Recognition
+  - name: Slack and Microsoft Teams Integrations
+  - name: Mobile Apps
+- id: bonusly-team
+  name: Team + Bizy AI
+  type: paid
+  description: >-
+    Self-serve paid tier for unlimited seats. Everything in Free plus advanced
+    analytics, automated celebrations, HRIS integrations, 24/7 chat support,
+    enhanced 1:1s, performance recaps, manager alerts, and full REST API access.
+    List price is $5 per user per month, or $50 per user per year billed
+    annually (about $4.17 per user per month). A Bizy-AI-excluded rate of about
+    $3 per user per month ($30 per user per year) is also offered.
+  entries:
+  - label: Per User Monthly
+    name: team_monthly
+    type: recurring
+    metric: seats
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '5'
+    userMultiplied: true
+  - label: Per User Annual
+    name: team_annual
+    type: recurring
+    metric: seats
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: '50'
+    userMultiplied: true
+  elements:
+  - name: Everything in Free
+  - name: Advanced Analytics
+  - name: Automated Celebrations
+  - name: HRIS Integrations
+  - name: REST API Access
+  - name: 24/7 Chat Support
+- id: bonusly-organization
+  name: Organization + Bizy AI
+  type: enterprise
+  description: >-
+    Custom-quoted tier for larger organizations with unlimited seats.
+    Everything in Team plus company announcements, awards and incentives,
+    company-wide analytics, recognition quality reporting, SAML SSO, a
+    dedicated customer success manager, a training library, onboarding
+    assistance, and (with Bizy AI) an included allotment of MCP tool calls per
+    month for AI-agent access to the API.
+  entries:
+  - label: Custom Contract
+    name: organization
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Everything in Team
+  - name: Company Announcements
+  - name: Awards and Incentives
+  - name: Company-Wide Analytics
+  - name: SAML SSO
+  - name: Dedicated CSM
+  - name: Included MCP Tool Calls
+- id: bonusly-bizy-ai-addon
+  name: Bizy AI Add-On
+  type: addon
+  description: >-
+    AI assistant add-on. Bundled into the Team and Organization plans; when
+    purchased separately it is about $2 per user per month.
+  entries:
+  - label: Per User Monthly
+    name: bizy_ai_monthly
+    type: recurring
+    metric: seats
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '2'
+    userMultiplied: true
+  elements:
+  - name: AI Assistant
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

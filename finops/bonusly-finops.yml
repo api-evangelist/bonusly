@@ -1,0 +1,100 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Bonusly
+providerId: bonusly
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Employee Recognition
+- Rewards
+- HR
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Bonusly spend. A Bonusly deployment has two distinct cost
+  components. The first is the platform subscription, billed per employee per
+  month (PEPM) across the Team and Organization plans, plus the optional Bizy AI
+  add-on. The second - often the larger line item - is the reward budget: the
+  actual dollars funding the points employees give and redeem for gift cards,
+  donations, and custom rewards. The API is included with the paid platform
+  subscription and does not carry a separate metered fee, except that AI-agent
+  access via the MCP server draws on an included monthly allotment of tool calls
+  on the top plan.
+notes: >-
+  PEPM rates are list prices and the Organization tier is custom-quoted; verify
+  on the Bonusly pricing page. The reward budget is funded and billed
+  separately from the subscription and is typically the dominant cost driver.
+  API usage itself is not separately metered on the standard plans.
+sources:
+- https://bonusly.com/pricing
+- https://help.bonus.ly/en/articles/13320193-paying-for-bonusly-subscriptions
+- https://docs.bonus.ly/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Bonusly
+serviceCategory: HR and Employee Engagement
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly or Annual
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: Bonusly
+  ServiceCategory: HR and Employee Engagement
+  ProviderName: Bonusly
+  PublisherName: Bonusly
+  InvoiceIssuerName: Bonusly
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Subscription-Based
+meters:
+- name: seats
+  description: Active users on the paid plan, billed per employee per month (PEPM).
+  unit: seats
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: reward_budget
+  description: Dollars funding the points employees redeem for gift cards, donations, and custom rewards, billed separately from the subscription.
+  unit: currency
+  aggregation: sum
+  dimensions:
+  - account
+  - reward_type
+  - country
+- name: bizy_ai
+  description: Optional Bizy AI add-on, per user per month when purchased separately.
+  unit: seats
+  aggregation: sum
+  dimensions:
+  - account
+- name: mcp_tool_calls
+  description: AI-agent tool calls through the MCP server against an included monthly allotment on the top plan.
+  unit: tool_calls
+  aggregation: sum
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Separate the platform subscription (PEPM seats) from the reward budget; track both against headcount and redemption activity.
+- name: Allocation
+  description: Attribute seats and reward redemptions to departments or teams using the department field on users and the analytics snapshots.
+- name: Optimization
+  description: Right-size the base allowance and reward budget to actual redemption patterns; deactivate archived users to stop paying for inactive seats.
+- name: Accountability
+  description: Assign an owner for the subscription and a separate owner for the reward budget; review monthly PEPM and redemption spend together.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

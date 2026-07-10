@@ -1,0 +1,278 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bonusly API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": { "name": "Bonuses", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List bonuses.", "type": "http" },
+          "http": { "method": "GET", "url": "https://bonus.ly/api/v1/bonuses" },
+          "docs": "Lists bonuses, most recent first, with optional user, hashtag, and date filters."
+        },
+        {
+          "info": { "name": "Create a bonus.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://bonus.ly/api/v1/bonuses",
+            "body": { "type": "json", "data": "{\n  \"reason\": \"+10 @alice for shipping the release #teamwork\"\n}" }
+          },
+          "docs": "Creates a bonus. The reason names one or more receivers, an amount, and a hashtag."
+        },
+        {
+          "info": { "name": "Retrieve a bonus.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/bonuses/:id",
+            "params": [
+              { "name": "id", "value": "", "type": "path", "description": "The ID of the bonus." }
+            ]
+          },
+          "docs": "Retrieves a single bonus by ID."
+        },
+        {
+          "info": { "name": "Update a bonus.", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://bonus.ly/api/v1/bonuses/:id",
+            "params": [
+              { "name": "id", "value": "", "type": "path", "description": "The ID of the bonus." }
+            ],
+            "body": { "type": "json", "data": "{\n  \"reason\": \"+10 @alice for the release #teamwork\"\n}" }
+          },
+          "docs": "Updates the reason text of an existing bonus."
+        },
+        {
+          "info": { "name": "Delete a bonus.", "type": "http" },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bonus.ly/api/v1/bonuses/:id",
+            "params": [
+              { "name": "id", "value": "", "type": "path", "description": "The ID of the bonus." }
+            ]
+          },
+          "docs": "Deletes a bonus by ID."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Users", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List users.", "type": "http" },
+          "http": { "method": "GET", "url": "https://bonus.ly/api/v1/users" },
+          "docs": "Lists users in the company."
+        },
+        {
+          "info": { "name": "Create a user.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://bonus.ly/api/v1/users",
+            "body": { "type": "json", "data": "{\n  \"email\": \"new.user@example.com\",\n  \"first_name\": \"New\",\n  \"last_name\": \"User\"\n}" }
+          },
+          "docs": "Invites a new user. Requires an administrator-scoped token."
+        },
+        {
+          "info": { "name": "Retrieve the authenticated user.", "type": "http" },
+          "http": { "method": "GET", "url": "https://bonus.ly/api/v1/users/me" },
+          "docs": "Returns the user tied to the access token."
+        },
+        {
+          "info": { "name": "Retrieve a user.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/users/:id",
+            "params": [
+              { "name": "id", "value": "", "type": "path", "description": "The ID of the user." }
+            ]
+          },
+          "docs": "Retrieves a single user by ID."
+        },
+        {
+          "info": { "name": "Update a user.", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://bonus.ly/api/v1/users/:id",
+            "params": [
+              { "name": "id", "value": "", "type": "path", "description": "The ID of the user." }
+            ],
+            "body": { "type": "json", "data": "{\n  \"display_name\": \"Updated Name\"\n}" }
+          },
+          "docs": "Updates a user's profile. Requires an administrator-scoped token."
+        },
+        {
+          "info": { "name": "Deactivate a user.", "type": "http" },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bonus.ly/api/v1/users/:id",
+            "params": [
+              { "name": "id", "value": "", "type": "path", "description": "The ID of the user." }
+            ]
+          },
+          "docs": "Deactivates (archives) a user. Requires an administrator-scoped token."
+        },
+        {
+          "info": { "name": "Autocomplete users.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/users/autocomplete",
+            "params": [
+              { "name": "query", "value": "al", "type": "query", "description": "Partial name or email to match." }
+            ]
+          },
+          "docs": "Returns users matching a partial name or email."
+        },
+        {
+          "info": { "name": "List a user's bonuses.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/users/:id/bonuses",
+            "params": [
+              { "name": "id", "value": "", "type": "path", "description": "The ID of the user." }
+            ]
+          },
+          "docs": "Lists bonuses given or received by a user."
+        },
+        {
+          "info": { "name": "List a user's redemptions.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/users/:id/redemptions",
+            "params": [
+              { "name": "id", "value": "", "type": "path", "description": "The ID of the user." }
+            ]
+          },
+          "docs": "Lists redemptions made by a user."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Rewards", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List rewards.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/rewards",
+            "params": [
+              { "name": "country", "value": "US", "type": "query", "description": "ISO country code scoping the gift-card catalog." }
+            ]
+          },
+          "docs": "Lists rewards in the redemption catalog - gift cards, donations, and custom rewards - filterable by country."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Redemptions", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List redemptions.", "type": "http" },
+          "http": { "method": "GET", "url": "https://bonus.ly/api/v1/redemptions" },
+          "docs": "Lists redemptions across the company."
+        },
+        {
+          "info": { "name": "Retrieve a redemption.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/redemptions/:id",
+            "params": [
+              { "name": "id", "value": "", "type": "path", "description": "The ID of the redemption." }
+            ]
+          },
+          "docs": "Retrieves a single redemption by ID."
+        },
+        {
+          "info": { "name": "Create a user redemption.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://bonus.ly/api/v1/user_redemptions",
+            "body": { "type": "json", "data": "{\n  \"user_id\": \"\",\n  \"reward_request\": \"\",\n  \"denomination\": 25\n}" }
+          },
+          "docs": "Redeems a reward for a user, spending points from their balance."
+        },
+        {
+          "info": { "name": "List custom reward redemptions.", "type": "http" },
+          "http": { "method": "GET", "url": "https://bonus.ly/api/v1/custom_reward_redemptions" },
+          "docs": "Lists redemptions of custom company rewards."
+        },
+        {
+          "info": { "name": "Approve custom reward redemptions.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://bonus.ly/api/v1/custom_reward_redemptions/approve",
+            "body": { "type": "json", "data": "{\n  \"ids\": []\n}" }
+          },
+          "docs": "Approves pending custom reward redemptions. Requires an administrator-scoped token."
+        },
+        {
+          "info": { "name": "Fulfill custom reward redemptions.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://bonus.ly/api/v1/custom_reward_redemptions/fulfill",
+            "body": { "type": "json", "data": "{\n  \"ids\": []\n}" }
+          },
+          "docs": "Marks approved custom reward redemptions as fulfilled. Requires an administrator-scoped token."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Analytics", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Analytics healthcheck.", "type": "http" },
+          "http": { "method": "GET", "url": "https://bonus.ly/api/v1/analytics/health" },
+          "docs": "Returns the availability status of the analytics subsystem."
+        },
+        {
+          "info": { "name": "Queue a recognition events snapshot.", "type": "http" },
+          "http": { "method": "POST", "url": "https://bonus.ly/api/v1/analytics/snapshots/recognition_events" },
+          "docs": "Queues an asynchronous snapshot of recognition events; returns a snapshot ID to poll."
+        },
+        {
+          "info": { "name": "Get snapshot status.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/analytics/snapshots/:id",
+            "params": [
+              { "name": "id", "value": "", "type": "path", "description": "The ID of the snapshot." }
+            ]
+          },
+          "docs": "Returns the processing status of a queued analytics snapshot."
+        },
+        {
+          "info": { "name": "List recognition events.", "type": "http" },
+          "http": { "method": "GET", "url": "https://bonus.ly/api/v1/analytics/recognition_events" },
+          "docs": "Lists the rows of a completed recognition events snapshot."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Company", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Retrieve company.", "type": "http" },
+          "http": { "method": "GET", "url": "https://bonus.ly/api/v1/company" },
+          "docs": "Retrieves company-level settings for the account tied to the token."
+        },
+        {
+          "info": { "name": "Update company.", "type": "http" },
+          "http": {
+            "method": "PUT",
+            "url": "https://bonus.ly/api/v1/company",
+            "body": { "type": "json", "data": "{}" }
+          },
+          "docs": "Updates company-level settings. Requires an administrator-scoped token."
+        }
+      ]
+    }
+  ]
+}

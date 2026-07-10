@@ -1,0 +1,124 @@
+aid: bonusly
+name: Bonusly
+review:
+  question: Does Bonusly expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-10'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Bonusly's public API is a request/response
+    REST API served over HTTPS under https://bonus.ly/api/v1 (with a newer
+    surface under https://bonus.ly/api/public). There is no documented
+    server-push transport - no WebSocket (ws:// or wss://) and no Server-Sent
+    Events endpoint - on Bonusly's own API to model. The closest thing to
+    asynchronous behavior is the Analytics API, which uses a queue-a-snapshot
+    then poll-for-status then list-rows pattern - client-initiated polling over
+    REST, not a streaming push channel. Bonusly also ships an MCP server
+    (announced 2026-05-22) that fronts the same REST surface for AI agents;
+    MCP transport is out of scope for an AsyncAPI document and does not
+    constitute a public WebSocket API.
+findings:
+  summary: |
+    Bonusly does not publish a documented public WebSocket API. Bonusly is an
+    employee recognition and rewards platform. Its public API is a
+    request/response REST API (base https://bonus.ly/api/v1, plus a newer
+    https://bonus.ly/api/public surface), authenticated with a Bearer personal
+    access token (PAT) that carries fine-grained read / write / administer
+    scopes per resource; a token missing a scope returns 403 Forbidden. The API
+    covers Bonuses, Users, the Rewards catalog, Redemptions (including a custom
+    reward approve/fulfill workflow), Awards, Achievements, Company settings,
+    Uploads, SCIM 2.0 user provisioning, and Analytics. All of it is plain
+    HTTPS REST. Analytics is asynchronous only in the sense of a
+    queue-snapshot/poll-status/list-rows polling pattern. No realtime,
+    bidirectional, or streaming WebSocket endpoint is documented anywhere in
+    Bonusly's API reference as of the review date.
+  accessModel: |
+    API access is available on Bonusly's paid plans (the free tier is capped at
+    a handful of users and aimed at trial use). Personal access tokens are
+    minted by Global or Tech admins from Company Settings > Integrations, or by
+    users from their profile's API tab, with scopes limited to what the
+    integrating role is allowed to grant. Tokens can live up to 365 days. Rate
+    limits vary by operation and return 429 with a Retry-After header; limits
+    can be raised on request.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://bonus.ly/api/v1
+      documented: true
+      note: Primary REST API for bonuses, users, rewards, redemptions, awards, company, and analytics.
+    - protocol: REST
+      scheme: https
+      baseURL: https://bonus.ly/api/public
+      documented: true
+      note: Newer public API surface; same kind of Bearer PAT.
+    - protocol: SCIM 2.0
+      scheme: https
+      documented: true
+      note: User provisioning under /scim/v2 (Users, Schemas, ResourceTypes, ServiceProviderConfig). REST, not WebSocket.
+    - protocol: MCP
+      scheme: https
+      documented: true
+      note: Model Context Protocol server (announced 2026-05-22) fronting the REST API for AI agents. Not a public WebSocket API.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Bonusly's API reference as of the review date.
+  endpointsConfirmedRest:
+    - POST   https://bonus.ly/api/v1/bonuses
+    - GET    https://bonus.ly/api/v1/bonuses
+    - GET    https://bonus.ly/api/v1/bonuses.atom
+    - GET    https://bonus.ly/api/v1/bonuses/{id}
+    - PUT    https://bonus.ly/api/v1/bonuses/{id}
+    - DELETE https://bonus.ly/api/v1/bonuses/{id}
+    - POST   https://bonus.ly/api/v1/users
+    - GET    https://bonus.ly/api/v1/users
+    - GET    https://bonus.ly/api/v1/users/{id}
+    - PUT    https://bonus.ly/api/v1/users/{id}
+    - DELETE https://bonus.ly/api/v1/users/{id}
+    - GET    https://bonus.ly/api/v1/users/me
+    - GET    https://bonus.ly/api/v1/users/autocomplete
+    - GET    https://bonus.ly/api/v1/users/{id}/bonuses
+    - GET    https://bonus.ly/api/v1/users/{id}/redemptions
+    - GET    https://bonus.ly/api/v1/users/{id}/achievements
+    - GET    https://bonus.ly/api/v1/rewards
+    - GET    https://bonus.ly/api/v1/redemptions
+    - GET    https://bonus.ly/api/v1/redemptions/{id}
+    - POST   https://bonus.ly/api/v1/user_redemptions
+    - GET    https://bonus.ly/api/v1/custom_reward_redemptions
+    - POST   https://bonus.ly/api/v1/custom_reward_redemptions/approve
+    - POST   https://bonus.ly/api/v1/custom_reward_redemptions/fulfill
+    - GET    https://bonus.ly/api/v1/analytics/health
+    - POST   https://bonus.ly/api/v1/analytics/snapshots/analytics_users
+    - POST   https://bonus.ly/api/v1/analytics/snapshots/recognition_events
+    - GET    https://bonus.ly/api/v1/analytics/snapshots/{id}
+    - GET    https://bonus.ly/api/v1/analytics/analytics_users
+    - GET    https://bonus.ly/api/v1/analytics/recognition_events
+    - GET    https://bonus.ly/api/v1/company
+    - PUT    https://bonus.ly/api/v1/company
+sources:
+  - url: https://docs.bonus.ly/
+    type: Documentation
+    note: API reference home; version v1.0, MCP server announced 2026-05-22. All REST, no WebSocket.
+  - url: https://docs.bonus.ly/llms.txt
+    type: Documentation
+    note: Machine index of every documented page and endpoint; used to enumerate Bonuses, Users, Redemptions, Awards, Company, Achievements, Analytics, Uploads, SCIM.
+  - url: https://docs.bonus.ly/docs/authentication.md
+    type: Documentation
+    note: Bearer PAT auth, scopes (read/write/administer), 429 with Retry-After, base https://bonus.ly/api/public.
+  - url: https://help.bonus.ly/en/articles/1258685-connecting-to-the-bonusly-api
+    type: Documentation
+    note: Base https://bonus.ly/api/v1, Authorization Bearer header, admin vs user tokens.
+  - url: https://bonusly.com/pricing
+    type: Pricing
+    note: Free / Team / Organization plans; paid plans carry API access.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists on Bonusly's own API. The public API is
+    request/response REST (plus SCIM 2.0 provisioning and an MCP server that
+    fronts the same REST surface). The Analytics API is asynchronous only via a
+    queue/poll/list pattern over REST, not a server-push channel. No AsyncAPI
+    document was created because there is no streaming or bidirectional
+    transport on Bonusly's own API to model.

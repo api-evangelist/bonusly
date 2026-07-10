@@ -1,0 +1,62 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Bonusly
+providerId: bonusly
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Employee Recognition
+- Rewards
+- HR
+- Rate Limiting
+- Quotas
+description: >-
+  Bonusly rate-limits its API, but does not publish fixed numeric per-minute
+  request ceilings. The documentation states that limits vary by operation and
+  that exceeding a limit returns HTTP 429 Too Many Requests with a Retry-After
+  header indicating when to retry. Limits can be raised on request. Access
+  itself is gated by scope rather than volume: a personal access token carries
+  read / write / administer scopes per resource, and calling an endpoint without
+  the required scope returns 403 Forbidden. On the Organization plan with the
+  Bizy AI add-on, AI-agent access through the MCP server carries a separate
+  included allotment of tool calls per month.
+notes: >-
+  No global numeric request-rate limit is documented as of the review date.
+  Clients should read the Retry-After header on 429 responses and back off
+  accordingly. Verify current per-operation limits and any published ceilings
+  in the Bonusly API reference during reconciliation.
+sources:
+- https://docs.bonus.ly/
+- https://docs.bonus.ly/docs/authentication.md
+- https://help.bonus.ly/en/articles/1258685-connecting-to-the-bonusly-api
+responseCodes:
+  throttled: 429
+  forbidden: 403
+limits:
+- name: API Requests
+  scope: token
+  metric: requests
+  limit: not published (varies by operation)
+  notes: 429 with a Retry-After header when exceeded; limits can be raised on request.
+- name: Scope Enforcement
+  scope: token
+  metric: scope
+  limit: per-resource read / write / administer
+  notes: Calling an endpoint without the required scope returns 403 Forbidden. Not a rate limit but a hard access gate.
+- name: MCP Tool Calls
+  scope: account
+  metric: tool_calls
+  limit: included allotment on Organization + Bizy AI
+  notes: AI-agent access via the MCP server carries a monthly included allotment of tool calls on the top plan.
+policies:
+- name: Retry-After
+  description: On a 429 response the API returns a Retry-After header; clients should wait the indicated interval before retrying.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After rather than retrying immediately.
+- name: Limit Increases
+  description: Rate limits can be raised on request by contacting Bonusly.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
