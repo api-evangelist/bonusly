@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bonusly-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: A Bonusly personal access token (PAT) passed as a Bearer token in the Authorization
+    header. Tokens carry read / write / administer scopes per resource and are minted by a Global
+    or Tech admin. A token that lacks the required scope returns 403 Forbidden.
+  sources:
+  - openapi/bonusly-openapi.yml

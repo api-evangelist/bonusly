@@ -151,6 +151,10 @@ apis:
     achievements - the account configuration that governs allowances, values,
     and recognition behavior across the organization.
 common:
+- type: DomainSecurity
+  url: security/bonusly-domain-security.yml
+- type: Authentication
+  url: authentication/bonusly-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/bonusly
 - type: LinkedIn
