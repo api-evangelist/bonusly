@@ -151,6 +151,8 @@ apis:
     achievements - the account configuration that governs allowances, values,
     and recognition behavior across the organization.
 common:
+- type: AgenticAccess
+  url: agentic-access/bonusly-agentic-access.yml
 - type: DomainSecurity
   url: security/bonusly-domain-security.yml
 - type: Authentication
