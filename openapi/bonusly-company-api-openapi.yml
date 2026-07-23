@@ -1,0 +1,101 @@
+openapi: 3.0.3
+info:
+  title: Bonusly Analytics Company API
+  description: The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform. It exposes bonuses (peer-to-peer recognition posts that carry points), users, the reward catalog, redemptions, awards, company settings, and analytics. All endpoints are served under the base https://bonus.ly/api/v1 and authenticated with a Bearer personal access token (PAT) minted by a Global or Tech admin, with fine-grained read / write / administer scopes per resource. A token that lacks the required scope returns 403 Forbidden. A newer public surface is also available under https://bonus.ly/api/public. API access is available on paid Bonusly plans. This description models the publicly documented endpoints; verify exact request and response shapes against the live reference at https://docs.bonus.ly.
+  version: '1.0'
+  contact:
+    name: Bonusly
+    url: https://docs.bonus.ly/
+servers:
+- url: https://bonus.ly/api/v1
+  description: Bonusly REST API (v1)
+- url: https://bonus.ly/api/public
+  description: Bonusly public API surface
+security:
+- bearerAuth: []
+tags:
+- name: Company
+  description: Company-level settings and achievements.
+paths:
+  /company:
+    get:
+      operationId: retrieveCompany
+      tags:
+      - Company
+      summary: Retrieve company
+      description: Retrieves company-level settings and configuration for the account tied to the access token.
+      responses:
+        '200':
+          description: The company.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  result:
+                    $ref: '#/components/schemas/Company'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      operationId: updateCompany
+      tags:
+      - Company
+      summary: Update company
+      description: Updates company-level settings. Requires an administrator-scoped token.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Company'
+      responses:
+        '200':
+          description: The updated company.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  result:
+                    $ref: '#/components/schemas/Company'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+components:
+  schemas:
+    Company:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        subdomain:
+          type: string
+        allow_self_registration:
+          type: boolean
+        base_allowance:
+          type: integer
+        currency_code:
+          type: string
+        default_country:
+          type: string
+        company_newsfeed_enabled:
+          type: boolean
+        values:
+          type: array
+          items:
+            type: string
+  responses:
+    Unauthorized:
+      description: The access token is missing or invalid.
+    Forbidden:
+      description: The token lacks the scope required for this operation.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: A Bonusly personal access token (PAT) passed as a Bearer token in the Authorization header. Tokens carry read / write / administer scopes per resource and are minted by a Global or Tech admin. A token that lacks the required scope returns 403 Forbidden.

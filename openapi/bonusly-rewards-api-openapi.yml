@@ -1,0 +1,85 @@
+openapi: 3.0.3
+info:
+  title: Bonusly Analytics Rewards API
+  description: The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform. It exposes bonuses (peer-to-peer recognition posts that carry points), users, the reward catalog, redemptions, awards, company settings, and analytics. All endpoints are served under the base https://bonus.ly/api/v1 and authenticated with a Bearer personal access token (PAT) minted by a Global or Tech admin, with fine-grained read / write / administer scopes per resource. A token that lacks the required scope returns 403 Forbidden. A newer public surface is also available under https://bonus.ly/api/public. API access is available on paid Bonusly plans. This description models the publicly documented endpoints; verify exact request and response shapes against the live reference at https://docs.bonus.ly.
+  version: '1.0'
+  contact:
+    name: Bonusly
+    url: https://docs.bonus.ly/
+servers:
+- url: https://bonus.ly/api/v1
+  description: Bonusly REST API (v1)
+- url: https://bonus.ly/api/public
+  description: Bonusly public API surface
+security:
+- bearerAuth: []
+tags:
+- name: Rewards
+  description: The catalog of gift cards, donations, and custom rewards.
+paths:
+  /rewards:
+    get:
+      operationId: listRewards
+      tags:
+      - Rewards
+      summary: List rewards
+      description: Lists rewards available in the redemption catalog - gift cards, donations, and custom company rewards - optionally filtered by country and reward request.
+      parameters:
+      - name: country
+        in: query
+        description: ISO country code used to scope the gift-card catalog.
+        schema:
+          type: string
+      - name: request
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of rewards.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Reward'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Reward:
+      type: object
+      properties:
+        request:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        image_url:
+          type: string
+        denominations:
+          type: array
+          items:
+            type: number
+        currency_code:
+          type: string
+        countries:
+          type: array
+          items:
+            type: string
+  responses:
+    Unauthorized:
+      description: The access token is missing or invalid.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: A Bonusly personal access token (PAT) passed as a Bearer token in the Authorization header. Tokens carry read / write / administer scopes per resource and are minted by a Global or Tech admin. A token that lacks the required scope returns 403 Forbidden.

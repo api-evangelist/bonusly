@@ -1,0 +1,279 @@
+openapi: 3.0.3
+info:
+  title: Bonusly Analytics Bonuses API
+  description: The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform. It exposes bonuses (peer-to-peer recognition posts that carry points), users, the reward catalog, redemptions, awards, company settings, and analytics. All endpoints are served under the base https://bonus.ly/api/v1 and authenticated with a Bearer personal access token (PAT) minted by a Global or Tech admin, with fine-grained read / write / administer scopes per resource. A token that lacks the required scope returns 403 Forbidden. A newer public surface is also available under https://bonus.ly/api/public. API access is available on paid Bonusly plans. This description models the publicly documented endpoints; verify exact request and response shapes against the live reference at https://docs.bonus.ly.
+  version: '1.0'
+  contact:
+    name: Bonusly
+    url: https://docs.bonus.ly/
+servers:
+- url: https://bonus.ly/api/v1
+  description: Bonusly REST API (v1)
+- url: https://bonus.ly/api/public
+  description: Bonusly public API surface
+security:
+- bearerAuth: []
+tags:
+- name: Bonuses
+  description: Peer-to-peer recognition posts that carry points.
+paths:
+  /bonuses:
+    get:
+      operationId: listBonuses
+      tags:
+      - Bonuses
+      summary: List bonuses
+      description: Lists bonuses, most recent first, with optional filters for user, hashtag, and date range.
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 20
+      - name: skip
+        in: query
+        schema:
+          type: integer
+      - name: start_time
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: end_time
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: user_email
+        in: query
+        schema:
+          type: string
+      - name: hashtag
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of bonuses.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Bonus'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createBonus
+      tags:
+      - Bonuses
+      summary: Create a bonus
+      description: Creates a bonus. The reason text names one or more receivers, an amount, and a reason - for example "+10 @alice for shipping the release
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BonusInput'
+      responses:
+        '200':
+          description: The created bonus.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BonusResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+  /bonuses.atom:
+    get:
+      operationId: listBonusesAtom
+      tags:
+      - Bonuses
+      summary: List bonuses (Atom feed)
+      description: Returns recent bonuses as an Atom (XML) feed.
+      responses:
+        '200':
+          description: An Atom feed of bonuses.
+          content:
+            application/atom+xml:
+              schema:
+                type: string
+  /bonuses/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: retrieveBonus
+      tags:
+      - Bonuses
+      summary: Retrieve a bonus
+      description: Retrieves a single bonus by its ID.
+      responses:
+        '200':
+          description: The requested bonus.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BonusResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateBonus
+      tags:
+      - Bonuses
+      summary: Update a bonus
+      description: Updates the reason text of an existing bonus.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BonusInput'
+      responses:
+        '200':
+          description: The updated bonus.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BonusResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteBonus
+      tags:
+      - Bonuses
+      summary: Delete a bonus
+      description: Deletes a bonus by its ID.
+      responses:
+        '200':
+          description: The bonus was deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+    Forbidden:
+      description: The token lacks the scope required for this operation.
+    Unauthorized:
+      description: The access token is missing or invalid.
+    UnprocessableEntity:
+      description: The request was well-formed but could not be processed.
+  schemas:
+    BonusInput:
+      type: object
+      required:
+      - reason
+      properties:
+        reason:
+          type: string
+          description: The recognition text, including receiver mentions, amount, and hashtag.
+        giver_email:
+          type: string
+        parent_bonus_id:
+          type: string
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        short_name:
+          type: string
+        display_name:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+        full_name:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        path:
+          type: string
+        full_pic_url:
+          type: string
+        profile_pic_url:
+          type: string
+        can_give:
+          type: boolean
+        earning_balance:
+          type: integer
+        earning_balance_with_currency:
+          type: string
+        giving_balance:
+          type: integer
+        giving_balance_with_currency:
+          type: string
+        can_receive:
+          type: boolean
+        department:
+          type: string
+        country:
+          type: string
+        time_zone:
+          type: string
+        user_mode:
+          type: string
+    Bonus:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        reason:
+          type: string
+        reason_html:
+          type: string
+        amount:
+          type: integer
+        amount_with_currency:
+          type: string
+        value:
+          type: string
+        giver:
+          $ref: '#/components/schemas/User'
+        receivers:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        hashtag:
+          type: string
+        via:
+          type: string
+        family_amount:
+          type: integer
+    BonusResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        result:
+          $ref: '#/components/schemas/Bonus'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: A Bonusly personal access token (PAT) passed as a Bearer token in the Authorization header. Tokens carry read / write / administer scopes per resource and are minted by a Global or Tech admin. A token that lacks the required scope returns 403 Forbidden.

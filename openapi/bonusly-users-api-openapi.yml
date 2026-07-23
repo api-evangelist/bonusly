@@ -1,0 +1,410 @@
+openapi: 3.0.3
+info:
+  title: Bonusly Analytics Users API
+  description: The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform. It exposes bonuses (peer-to-peer recognition posts that carry points), users, the reward catalog, redemptions, awards, company settings, and analytics. All endpoints are served under the base https://bonus.ly/api/v1 and authenticated with a Bearer personal access token (PAT) minted by a Global or Tech admin, with fine-grained read / write / administer scopes per resource. A token that lacks the required scope returns 403 Forbidden. A newer public surface is also available under https://bonus.ly/api/public. API access is available on paid Bonusly plans. This description models the publicly documented endpoints; verify exact request and response shapes against the live reference at https://docs.bonus.ly.
+  version: '1.0'
+  contact:
+    name: Bonusly
+    url: https://docs.bonus.ly/
+servers:
+- url: https://bonus.ly/api/v1
+  description: Bonusly REST API (v1)
+- url: https://bonus.ly/api/public
+  description: Bonusly public API surface
+security:
+- bearerAuth: []
+tags:
+- name: Users
+  description: Company members who give and receive recognition.
+paths:
+  /users:
+    get:
+      operationId: listUsers
+      tags:
+      - Users
+      summary: List users
+      description: Lists users in the company, with optional filtering and pagination.
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 20
+      - name: skip
+        in: query
+        schema:
+          type: integer
+      - name: email
+        in: query
+        schema:
+          type: string
+      - name: sort
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of users.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createUser
+      tags:
+      - Users
+      summary: Create a user
+      description: Creates (invites) a new user in the company. Requires an administrator-scoped token.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+      responses:
+        '200':
+          description: The created user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /users/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: retrieveUser
+      tags:
+      - Users
+      summary: Retrieve a user
+      description: Retrieves a single user by ID.
+      responses:
+        '200':
+          description: The requested user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateUser
+      tags:
+      - Users
+      summary: Update a user
+      description: Updates a user's profile fields, such as display name, email, or budget. Requires an administrator-scoped token.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+      responses:
+        '200':
+          description: The updated user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    delete:
+      operationId: deactivateUser
+      tags:
+      - Users
+      summary: Deactivate a user
+      description: Deactivates (archives) a user. Requires an administrator-scoped token.
+      responses:
+        '200':
+          description: The user was deactivated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /users/me:
+    get:
+      operationId: retrieveMe
+      tags:
+      - Users
+      summary: Retrieve the authenticated user
+      description: Returns the user associated with the access token used to make the request.
+      responses:
+        '200':
+          description: The authenticated user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /users/autocomplete:
+    get:
+      operationId: autocompleteUsers
+      tags:
+      - Users
+      summary: Autocomplete users
+      description: Returns users matching a partial name or email, for building recognition input fields.
+      parameters:
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Matching users.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+  /users/{id}/bonuses:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: listUserBonuses
+      tags:
+      - Users
+      summary: List a user's bonuses
+      description: Lists bonuses given or received by a specific user.
+      responses:
+        '200':
+          description: The user's bonuses.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Bonus'
+  /users/{id}/redemptions:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: listUserRedemptions
+      tags:
+      - Users
+      summary: List a user's redemptions
+      description: Lists redemptions made by a specific user.
+      responses:
+        '200':
+          description: The user's redemptions.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Redemption'
+  /users/{id}/achievements:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: listUserAchievements
+      tags:
+      - Users
+      summary: List a user's achievements
+      description: Lists achievements earned by a specific user.
+      responses:
+        '200':
+          description: The user's achievements.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  result:
+                    type: array
+                    items:
+                      type: object
+components:
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+    Forbidden:
+      description: The token lacks the scope required for this operation.
+    Unauthorized:
+      description: The access token is missing or invalid.
+  schemas:
+    UserResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        result:
+          $ref: '#/components/schemas/User'
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        short_name:
+          type: string
+        display_name:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+        full_name:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        path:
+          type: string
+        full_pic_url:
+          type: string
+        profile_pic_url:
+          type: string
+        can_give:
+          type: boolean
+        earning_balance:
+          type: integer
+        earning_balance_with_currency:
+          type: string
+        giving_balance:
+          type: integer
+        giving_balance_with_currency:
+          type: string
+        can_receive:
+          type: boolean
+        department:
+          type: string
+        country:
+          type: string
+        time_zone:
+          type: string
+        user_mode:
+          type: string
+    Redemption:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        display_name:
+          type: string
+        amount:
+          type: integer
+        amount_with_currency:
+          type: string
+        reward_amount:
+          type: number
+        currency_code:
+          type: string
+        reward_type:
+          type: string
+        status:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+    Bonus:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        reason:
+          type: string
+        reason_html:
+          type: string
+        amount:
+          type: integer
+        amount_with_currency:
+          type: string
+        value:
+          type: string
+        giver:
+          $ref: '#/components/schemas/User'
+        receivers:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        hashtag:
+          type: string
+        via:
+          type: string
+        family_amount:
+          type: integer
+    UserInput:
+      type: object
+      properties:
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        display_name:
+          type: string
+        budget_boost:
+          type: integer
+        user_mode:
+          type: string
+        role:
+          type: string
+        department:
+          type: string
+        country:
+          type: string
+        time_zone:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: A Bonusly personal access token (PAT) passed as a Bearer token in the Authorization header. Tokens carry read / write / administer scopes per resource and are minted by a Global or Tech admin. A token that lacks the required scope returns 403 Forbidden.

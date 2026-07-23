@@ -1,0 +1,124 @@
+openapi: 3.0.3
+info:
+  title: Bonusly Analytics API
+  description: The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform. It exposes bonuses (peer-to-peer recognition posts that carry points), users, the reward catalog, redemptions, awards, company settings, and analytics. All endpoints are served under the base https://bonus.ly/api/v1 and authenticated with a Bearer personal access token (PAT) minted by a Global or Tech admin, with fine-grained read / write / administer scopes per resource. A token that lacks the required scope returns 403 Forbidden. A newer public surface is also available under https://bonus.ly/api/public. API access is available on paid Bonusly plans. This description models the publicly documented endpoints; verify exact request and response shapes against the live reference at https://docs.bonus.ly.
+  version: '1.0'
+  contact:
+    name: Bonusly
+    url: https://docs.bonus.ly/
+servers:
+- url: https://bonus.ly/api/v1
+  description: Bonusly REST API (v1)
+- url: https://bonus.ly/api/public
+  description: Bonusly public API surface
+security:
+- bearerAuth: []
+tags:
+- name: Analytics
+  description: Snapshots and lists of recognition activity for reporting.
+paths:
+  /analytics/health:
+    get:
+      operationId: analyticsHealthcheck
+      tags:
+      - Analytics
+      summary: Analytics healthcheck
+      description: Returns the availability status of the analytics subsystem.
+      responses:
+        '200':
+          description: Analytics is available.
+  /analytics/snapshots/analytics_users:
+    post:
+      operationId: queueUsersSnapshot
+      tags:
+      - Analytics
+      summary: Queue an analytics users snapshot
+      description: Queues an asynchronous snapshot of analytics users. Returns a snapshot ID to poll for status.
+      responses:
+        '200':
+          description: The snapshot was queued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+  /analytics/snapshots/recognition_events:
+    post:
+      operationId: queueRecognitionEventsSnapshot
+      tags:
+      - Analytics
+      summary: Queue a recognition events snapshot
+      description: Queues an asynchronous snapshot of recognition events. Returns a snapshot ID to poll for status.
+      responses:
+        '200':
+          description: The snapshot was queued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+  /analytics/snapshots/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getSnapshotStatus
+      tags:
+      - Analytics
+      summary: Get snapshot status
+      description: Returns the processing status of a queued analytics snapshot.
+      responses:
+        '200':
+          description: The snapshot status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Snapshot'
+  /analytics/analytics_users:
+    get:
+      operationId: listAnalyticsUsers
+      tags:
+      - Analytics
+      summary: List analytics users
+      description: Lists the rows of a completed analytics users snapshot.
+      responses:
+        '200':
+          description: Analytics user rows.
+          content:
+            application/json:
+              schema:
+                type: object
+  /analytics/recognition_events:
+    get:
+      operationId: listRecognitionEvents
+      tags:
+      - Analytics
+      summary: List recognition events
+      description: Lists the rows of a completed recognition events snapshot.
+      responses:
+        '200':
+          description: Recognition event rows.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    Snapshot:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: A Bonusly personal access token (PAT) passed as a Bearer token in the Authorization header. Tokens carry read / write / administer scopes per resource and are minted by a Global or Tech admin. A token that lacks the required scope returns 403 Forbidden.
