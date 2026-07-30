@@ -10,7 +10,20 @@ description: Bonusly is an employee recognition and rewards platform that lets
   redemptions, awards, company settings, and analytics - authenticated with a
   Bearer personal access token. API access is available on paid plans; tokens
   are minted by admins with fine-grained read / write / administer scopes.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bonusly.png
 tags:
 - Employee Recognition
 - Rewards
@@ -22,134 +35,174 @@ created: '2026-07-10'
 modified: '2026-07-10'
 specificationVersion: '0.19'
 apis:
-- aid: bonusly:bonusly-bonuses-api
-  name: Bonusly Bonuses API
-  tags:
-  - Bonuses
-  - Recognition
-  - Points
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.bonus.ly/reference/list-bonuses
-  baseURL: https://bonus.ly/api/v1
-  properties:
-  - url: https://docs.bonus.ly/
-    type: Documentation
-  - url: https://docs.bonus.ly/reference/list-bonuses
-    type: APIReference
-  - url: openapi/bonusly-openapi.yml
-    type: OpenAPI
-  - url: collections/bonusly.postman_collection.json
-    type: PostmanCollection
-  - url: collections/bonusly.opencollection.json
-    type: OpenCollection
-  description: Create, list, retrieve, update, and delete bonuses - the public
-    peer-to-peer recognition posts that carry points, a reason, hashtags, and
-    one or more receivers. Includes an Atom feed of recent bonuses.
-- aid: bonusly:bonusly-users-api
-  name: Bonusly Users API
-  tags:
-  - Users
-  - Members
-  - Provisioning
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.bonus.ly/reference/list-users
-  baseURL: https://bonus.ly/api/v1
-  properties:
-  - url: https://docs.bonus.ly/reference/list-users
-    type: APIReference
-  - url: openapi/bonusly-openapi.yml
-    type: OpenAPI
-  - url: collections/bonusly.postman_collection.json
-    type: PostmanCollection
-  - url: collections/bonusly.opencollection.json
-    type: OpenCollection
-  description: Manage company members - create, list, retrieve, update, and
-    deactivate users; fetch the authenticated user via /me; autocomplete users
-    by name; and pull a user's bonuses, redemptions, and achievements.
-- aid: bonusly:bonusly-rewards-api
-  name: Bonusly Rewards API
-  tags:
-  - Rewards
-  - Gift Cards
-  - Catalog
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.bonus.ly/reference/list-rewards
-  baseURL: https://bonus.ly/api/v1
-  properties:
-  - url: https://docs.bonus.ly/reference/list-rewards
-    type: APIReference
-  - url: openapi/bonusly-openapi.yml
-    type: OpenAPI
-  - url: collections/bonusly.postman_collection.json
-    type: PostmanCollection
-  - url: collections/bonusly.opencollection.json
-    type: OpenCollection
-  description: Browse the redemption catalog - the gift cards, donations, and
-    custom company rewards a user can spend earned points on, filterable by
-    country and reward request.
-- aid: bonusly:bonusly-redemptions-api
-  name: Bonusly Redemptions API
-  tags:
-  - Redemptions
-  - Rewards
-  - Fulfillment
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.bonus.ly/reference/list-redemptions
-  baseURL: https://bonus.ly/api/v1
-  properties:
-  - url: https://docs.bonus.ly/reference/list-redemptions
-    type: APIReference
-  - url: openapi/bonusly-openapi.yml
-    type: OpenAPI
-  - url: collections/bonusly.postman_collection.json
-    type: PostmanCollection
-  - url: collections/bonusly.opencollection.json
-    type: OpenCollection
-  description: List and retrieve redemptions where users convert earned points
-    into rewards, create a user redemption, and manage the custom-reward
-    redemption workflow - listing, approving, and fulfilling custom rewards.
 - aid: bonusly:bonusly-analytics-api
   name: Bonusly Analytics API
+  description: Snapshots and lists of recognition activity for reporting.
+  humanURL: https://docs.bonus.ly/reference/list-bonuses
+  baseURL: https://bonus.ly/api/v1
   tags:
   - Analytics
-  - Snapshots
-  - Reporting
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.bonus.ly/reference/analytics-healthcheck
-  baseURL: https://bonus.ly/api/v1
   properties:
-  - url: https://docs.bonus.ly/reference/analytics-healthcheck
-    type: APIReference
-  - url: openapi/bonusly-openapi.yml
-    type: OpenAPI
-  - url: collections/bonusly.postman_collection.json
-    type: PostmanCollection
-  - url: collections/bonusly.opencollection.json
-    type: OpenCollection
-  description: Queue and read analytics snapshots for recognition activity -
-    request an asynchronous snapshot of analytics users or recognition events,
-    poll its status, and list the resulting rows for engagement reporting.
+  - type: OpenAPI
+    url: openapi/bonusly-analytics-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bonus.ly/
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-bonuses
+  - type: PostmanCollection
+    url: collections/bonusly.postman_collection.json
+  - type: OpenCollection
+    url: collections/bonusly.opencollection.json
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-users
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-rewards
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-redemptions
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/analytics-healthcheck
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/retrieve-company
+- aid: bonusly:bonusly-bonuses-api
+  name: Bonusly Bonuses API
+  description: Peer-to-peer recognition posts that carry points.
+  humanURL: https://docs.bonus.ly/reference/list-bonuses
+  baseURL: https://bonus.ly/api/v1
+  tags:
+  - Bonuses
+  properties:
+  - type: OpenAPI
+    url: openapi/bonusly-bonuses-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bonus.ly/
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-bonuses
+  - type: PostmanCollection
+    url: collections/bonusly.postman_collection.json
+  - type: OpenCollection
+    url: collections/bonusly.opencollection.json
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-users
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-rewards
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-redemptions
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/analytics-healthcheck
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/retrieve-company
 - aid: bonusly:bonusly-company-api
   name: Bonusly Company API
+  description: Company-level settings and achievements.
+  humanURL: https://docs.bonus.ly/reference/list-bonuses
+  baseURL: https://bonus.ly/api/v1
   tags:
   - Company
-  - Settings
-  - Administration
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.bonus.ly/reference/retrieve-company
-  baseURL: https://bonus.ly/api/v1
   properties:
-  - url: https://docs.bonus.ly/reference/retrieve-company
-    type: APIReference
-  - url: openapi/bonusly-openapi.yml
-    type: OpenAPI
-  - url: collections/bonusly.postman_collection.json
-    type: PostmanCollection
-  - url: collections/bonusly.opencollection.json
-    type: OpenCollection
-  description: Retrieve and update company-level settings and read company
-    achievements - the account configuration that governs allowances, values,
-    and recognition behavior across the organization.
+  - type: OpenAPI
+    url: openapi/bonusly-company-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bonus.ly/
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-bonuses
+  - type: PostmanCollection
+    url: collections/bonusly.postman_collection.json
+  - type: OpenCollection
+    url: collections/bonusly.opencollection.json
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-users
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-rewards
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-redemptions
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/analytics-healthcheck
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/retrieve-company
+- aid: bonusly:bonusly-redemptions-api
+  name: Bonusly Redemptions API
+  description: Conversions of earned points into rewards.
+  humanURL: https://docs.bonus.ly/reference/list-bonuses
+  baseURL: https://bonus.ly/api/v1
+  tags:
+  - Redemptions
+  properties:
+  - type: OpenAPI
+    url: openapi/bonusly-redemptions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bonus.ly/
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-bonuses
+  - type: PostmanCollection
+    url: collections/bonusly.postman_collection.json
+  - type: OpenCollection
+    url: collections/bonusly.opencollection.json
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-users
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-rewards
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-redemptions
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/analytics-healthcheck
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/retrieve-company
+- aid: bonusly:bonusly-rewards-api
+  name: Bonusly Rewards API
+  description: The catalog of gift cards, donations, and custom rewards.
+  humanURL: https://docs.bonus.ly/reference/list-bonuses
+  baseURL: https://bonus.ly/api/v1
+  tags:
+  - Rewards
+  properties:
+  - type: OpenAPI
+    url: openapi/bonusly-rewards-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bonus.ly/
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-bonuses
+  - type: PostmanCollection
+    url: collections/bonusly.postman_collection.json
+  - type: OpenCollection
+    url: collections/bonusly.opencollection.json
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-users
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-rewards
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-redemptions
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/analytics-healthcheck
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/retrieve-company
+- aid: bonusly:bonusly-users-api
+  name: Bonusly Users API
+  description: Company members who give and receive recognition.
+  humanURL: https://docs.bonus.ly/reference/list-bonuses
+  baseURL: https://bonus.ly/api/v1
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/bonusly-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.bonus.ly/
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-bonuses
+  - type: PostmanCollection
+    url: collections/bonusly.postman_collection.json
+  - type: OpenCollection
+    url: collections/bonusly.opencollection.json
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-users
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-rewards
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/list-redemptions
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/analytics-healthcheck
+  - type: APIReference
+    url: https://docs.bonus.ly/reference/retrieve-company
 common:
 - type: AgenticAccess
   url: agentic-access/bonusly-agentic-access.yml
