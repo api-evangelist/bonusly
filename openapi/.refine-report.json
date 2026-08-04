@@ -1,0 +1,24 @@
+{
+  "provider": "bonusly",
+  "sources": [
+    "bonusly-analytics-api-openapi.yml",
+    "bonusly-bonuses-api-openapi.yml",
+    "bonusly-company-api-openapi.yml",
+    "bonusly-redemptions-api-openapi.yml",
+    "bonusly-rewards-api-openapi.yml",
+    "bonusly-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "bonusly-analytics-api-openapi.yml",
+    "bonusly-bonuses-api-openapi.yml",
+    "bonusly-company-api-openapi.yml",
+    "bonusly-redemptions-api-openapi.yml",
+    "bonusly-rewards-api-openapi.yml",
+    "bonusly-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
