@@ -1,0 +1,188 @@
+{
+  "item": [
+    {
+      "id": "ec264830-e912-4c73-91b6-571f23f5235f",
+      "name": "Rewards",
+      "description": {
+        "content": "The catalog of gift cards, donations, and custom rewards.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "30f4757f-35ae-44af-833d-9d37496af50f",
+          "name": "List rewards",
+          "request": {
+            "name": "List rewards",
+            "description": {
+              "content": "Lists rewards available in the redemption catalog - gift cards, donations, and custom company rewards - optionally filtered by country and reward request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rewards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "ISO country code used to scope the gift-card catalog."
+                },
+                {
+                  "disabled": false,
+                  "key": "request",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fbd535be-a44c-43b2-b3c4-7237c54b675b",
+              "name": "A list of rewards.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rewards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"result\": [\n    {\n      \"request\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"description\": \"string\",\n      \"image_url\": \"string\",\n      \"denominations\": [\n        4230.535181673217,\n        2975.5319957922497\n      ],\n      \"currency_code\": \"string\",\n      \"countries\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"request\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"description\": \"string\",\n      \"image_url\": \"string\",\n      \"denominations\": [\n        5826.36241603507,\n        3259.4118096162692\n      ],\n      \"currency_code\": \"string\",\n      \"countries\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf1f486d-f93d-40cb-bc56-13339d21c19a",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rewards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bonus.ly/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "87005a2a-bb2a-4db6-ac53-e674a5a21fb5",
+    "name": "Bonusly Analytics Rewards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform. It exposes bonuses (peer-to-peer recognition posts that carry points), users, the reward catalog, redemptions, awards, company settings, and analytics. All endpoints are served under the base https://bonus.ly/api/v1 and authenticated with a Bearer personal access token (PAT) minted by a Global or Tech admin, with fine-grained read / write / administer scopes per resource. A token that lacks the required scope returns 403 Forbidden. A newer public surface is also available under https://bonus.ly/api/public. API access is available on paid Bonusly plans. This description models the publicly documented endpoints; verify exact request and response shapes against the live reference at https://docs.bonus.ly.\n\nContact Support:\n Name: Bonusly",
+      "type": "text/plain"
+    }
+  }
+}

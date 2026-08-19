@@ -1,0 +1,151 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bonusly Analytics Bonuses API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bonuses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List bonuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/bonuses",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user_email",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "hashtag",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists bonuses, most recent first, with optional filters for user, hashtag, and date range."
+        },
+        {
+          "info": {
+            "name": "Create a bonus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bonus.ly/api/v1/bonuses",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a bonus. The reason text names one or more receivers, an amount, and a reason - for example \"+10 @alice for shipping the release"
+        },
+        {
+          "info": {
+            "name": "List bonuses (Atom feed)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/bonuses.atom"
+          },
+          "docs": "Returns recent bonuses as an Atom (XML) feed."
+        },
+        {
+          "info": {
+            "name": "Retrieve a bonus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/bonuses/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a single bonus by its ID."
+        },
+        {
+          "info": {
+            "name": "Update a bonus",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bonus.ly/api/v1/bonuses/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the reason text of an existing bonus."
+        },
+        {
+          "info": {
+            "name": "Delete a bonus",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bonus.ly/api/v1/bonuses/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a bonus by its ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1160 @@
+{
+  "item": [
+    {
+      "id": "d9897cb8-50f8-4e44-a542-1dd8115f14a6",
+      "name": "Bonuses",
+      "description": {
+        "content": "Peer-to-peer recognition posts that carry points.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "99b11fa7-0d9b-4148-bc9c-dcb903b17575",
+          "name": "List bonuses",
+          "request": {
+            "name": "List bonuses",
+            "description": {
+              "content": "Lists bonuses, most recent first, with optional filters for user, hashtag, and date range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bonuses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_email",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "hashtag",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e1aaa6e-0d58-4903-868a-c79f41e7c3f7",
+              "name": "A list of bonuses.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "user_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hashtag",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"result\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"1984-07-15T18:53:15.901Z\",\n      \"reason\": \"string\",\n      \"reason_html\": \"string\",\n      \"amount\": 8268,\n      \"amount_with_currency\": \"string\",\n      \"value\": \"string\",\n      \"giver\": {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": true,\n        \"earning_balance\": 259,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 250,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": false,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      },\n      \"receivers\": [\n        {\n          \"id\": \"string\",\n          \"short_name\": \"string\",\n          \"display_name\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\",\n          \"full_name\": \"string\",\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"path\": \"string\",\n          \"full_pic_url\": \"string\",\n          \"profile_pic_url\": \"string\",\n          \"can_give\": false,\n          \"earning_balance\": 6494,\n          \"earning_balance_with_currency\": \"string\",\n          \"giving_balance\": 6247,\n          \"giving_balance_with_currency\": \"string\",\n          \"can_receive\": false,\n          \"department\": \"string\",\n          \"country\": \"string\",\n          \"time_zone\": \"string\",\n          \"user_mode\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"short_name\": \"string\",\n          \"display_name\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\",\n          \"full_name\": \"string\",\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"path\": \"string\",\n          \"full_pic_url\": \"string\",\n          \"profile_pic_url\": \"string\",\n          \"can_give\": false,\n          \"earning_balance\": 1896,\n          \"earning_balance_with_currency\": \"string\",\n          \"giving_balance\": 7882,\n          \"giving_balance_with_currency\": \"string\",\n          \"can_receive\": false,\n          \"department\": \"string\",\n          \"country\": \"string\",\n          \"time_zone\": \"string\",\n          \"user_mode\": \"string\"\n        }\n      ],\n      \"hashtag\": \"string\",\n      \"via\": \"string\",\n      \"family_amount\": 7351\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"1948-07-21T13:17:04.159Z\",\n      \"reason\": \"string\",\n      \"reason_html\": \"string\",\n      \"amount\": 7660,\n      \"amount_with_currency\": \"string\",\n      \"value\": \"string\",\n      \"giver\": {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": false,\n        \"earning_balance\": 8355,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 5804,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": true,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      },\n      \"receivers\": [\n        {\n          \"id\": \"string\",\n          \"short_name\": \"string\",\n          \"display_name\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\",\n          \"full_name\": \"string\",\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"path\": \"string\",\n          \"full_pic_url\": \"string\",\n          \"profile_pic_url\": \"string\",\n          \"can_give\": true,\n          \"earning_balance\": 9802,\n          \"earning_balance_with_currency\": \"string\",\n          \"giving_balance\": 3394,\n          \"giving_balance_with_currency\": \"string\",\n          \"can_receive\": true,\n          \"department\": \"string\",\n          \"country\": \"string\",\n          \"time_zone\": \"string\",\n          \"user_mode\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"short_name\": \"string\",\n          \"display_name\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\",\n          \"full_name\": \"string\",\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"path\": \"string\",\n          \"full_pic_url\": \"string\",\n          \"profile_pic_url\": \"string\",\n          \"can_give\": true,\n          \"earning_balance\": 4312,\n          \"earning_balance_with_currency\": \"string\",\n          \"giving_balance\": 9329,\n          \"giving_balance_with_currency\": \"string\",\n          \"can_receive\": true,\n          \"department\": \"string\",\n          \"country\": \"string\",\n          \"time_zone\": \"string\",\n          \"user_mode\": \"string\"\n        }\n      ],\n      \"hashtag\": \"string\",\n      \"via\": \"string\",\n      \"family_amount\": 3185\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a6cb991-e0c1-4613-8815-07f36f0a7909",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "user_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hashtag",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b95dd4cd-779a-4cdf-a72d-fc8977965b04",
+          "name": "Create a bonus",
+          "request": {
+            "name": "Create a bonus",
+            "description": {
+              "content": "Creates a bonus. The reason text names one or more receivers, an amount, and a reason - for example \"+10 @alice for shipping the release",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bonuses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"<string>\",\n  \"giver_email\": \"<string>\",\n  \"parent_bonus_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eaeae2ee-9e72-4a7c-ac07-3d2e25dd0004",
+              "name": "The created bonus.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\",\n  \"giver_email\": \"<string>\",\n  \"parent_bonus_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"result\": {\n    \"id\": \"string\",\n    \"created_at\": \"1993-10-25T23:49:21.191Z\",\n    \"reason\": \"string\",\n    \"reason_html\": \"string\",\n    \"amount\": 5523,\n    \"amount_with_currency\": \"string\",\n    \"value\": \"string\",\n    \"giver\": {\n      \"id\": \"string\",\n      \"short_name\": \"string\",\n      \"display_name\": \"string\",\n      \"username\": \"string\",\n      \"email\": \"string\",\n      \"full_name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"path\": \"string\",\n      \"full_pic_url\": \"string\",\n      \"profile_pic_url\": \"string\",\n      \"can_give\": false,\n      \"earning_balance\": 1563,\n      \"earning_balance_with_currency\": \"string\",\n      \"giving_balance\": 6026,\n      \"giving_balance_with_currency\": \"string\",\n      \"can_receive\": false,\n      \"department\": \"string\",\n      \"country\": \"string\",\n      \"time_zone\": \"string\",\n      \"user_mode\": \"string\"\n    },\n    \"receivers\": [\n      {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": true,\n        \"earning_balance\": 1596,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 4454,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": true,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": false,\n        \"earning_balance\": 6624,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 3735,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": false,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      }\n    ],\n    \"hashtag\": \"string\",\n    \"via\": \"string\",\n    \"family_amount\": 7176\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1009560-6bca-4ba5-ad4a-4eda6fb8b9cb",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\",\n  \"giver_email\": \"<string>\",\n  \"parent_bonus_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f4a52b03-51c7-4504-9ff4-ededa76abaf1",
+              "name": "The token lacks the scope required for this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\",\n  \"giver_email\": \"<string>\",\n  \"parent_bonus_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0a608ba-ca86-47a1-a56b-a2c2cd6f4678",
+              "name": "The request was well-formed but could not be processed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\",\n  \"giver_email\": \"<string>\",\n  \"parent_bonus_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e31d26c1-1de4-462a-b329-0f52804b387b",
+          "name": "List bonuses (Atom feed)",
+          "request": {
+            "name": "List bonuses (Atom feed)",
+            "description": {
+              "content": "Returns recent bonuses as an Atom (XML) feed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bonuses.atom"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/atom+xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "439b7741-03b5-4b62-bab7-10a44b519597",
+              "name": "An Atom feed of bonuses.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses.atom"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/atom+xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/atom+xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3603d411-4d5f-43cb-b03f-87d090c26588",
+          "name": "Retrieve a bonus",
+          "request": {
+            "name": "Retrieve a bonus",
+            "description": {
+              "content": "Retrieves a single bonus by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bonuses",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31c38563-9846-43ea-ba47-e20064b37238",
+              "name": "The requested bonus.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"result\": {\n    \"id\": \"string\",\n    \"created_at\": \"1993-10-25T23:49:21.191Z\",\n    \"reason\": \"string\",\n    \"reason_html\": \"string\",\n    \"amount\": 5523,\n    \"amount_with_currency\": \"string\",\n    \"value\": \"string\",\n    \"giver\": {\n      \"id\": \"string\",\n      \"short_name\": \"string\",\n      \"display_name\": \"string\",\n      \"username\": \"string\",\n      \"email\": \"string\",\n      \"full_name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"path\": \"string\",\n      \"full_pic_url\": \"string\",\n      \"profile_pic_url\": \"string\",\n      \"can_give\": false,\n      \"earning_balance\": 1563,\n      \"earning_balance_with_currency\": \"string\",\n      \"giving_balance\": 6026,\n      \"giving_balance_with_currency\": \"string\",\n      \"can_receive\": false,\n      \"department\": \"string\",\n      \"country\": \"string\",\n      \"time_zone\": \"string\",\n      \"user_mode\": \"string\"\n    },\n    \"receivers\": [\n      {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": true,\n        \"earning_balance\": 1596,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 4454,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": true,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": false,\n        \"earning_balance\": 6624,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 3735,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": false,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      }\n    ],\n    \"hashtag\": \"string\",\n    \"via\": \"string\",\n    \"family_amount\": 7176\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe5e5b78-fe62-42e2-bcbd-c5f1864b504d",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "074019dd-0dbe-42f0-b23b-96d3742887ff",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "beb03b92-8f71-4c67-966b-7fe95c5ef500",
+          "name": "Update a bonus",
+          "request": {
+            "name": "Update a bonus",
+            "description": {
+              "content": "Updates the reason text of an existing bonus.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bonuses",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"<string>\",\n  \"giver_email\": \"<string>\",\n  \"parent_bonus_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "785aa89d-78ac-4884-bd76-309f43e99aad",
+              "name": "The updated bonus.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\",\n  \"giver_email\": \"<string>\",\n  \"parent_bonus_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"result\": {\n    \"id\": \"string\",\n    \"created_at\": \"1993-10-25T23:49:21.191Z\",\n    \"reason\": \"string\",\n    \"reason_html\": \"string\",\n    \"amount\": 5523,\n    \"amount_with_currency\": \"string\",\n    \"value\": \"string\",\n    \"giver\": {\n      \"id\": \"string\",\n      \"short_name\": \"string\",\n      \"display_name\": \"string\",\n      \"username\": \"string\",\n      \"email\": \"string\",\n      \"full_name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"path\": \"string\",\n      \"full_pic_url\": \"string\",\n      \"profile_pic_url\": \"string\",\n      \"can_give\": false,\n      \"earning_balance\": 1563,\n      \"earning_balance_with_currency\": \"string\",\n      \"giving_balance\": 6026,\n      \"giving_balance_with_currency\": \"string\",\n      \"can_receive\": false,\n      \"department\": \"string\",\n      \"country\": \"string\",\n      \"time_zone\": \"string\",\n      \"user_mode\": \"string\"\n    },\n    \"receivers\": [\n      {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": true,\n        \"earning_balance\": 1596,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 4454,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": true,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": false,\n        \"earning_balance\": 6624,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 3735,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": false,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      }\n    ],\n    \"hashtag\": \"string\",\n    \"via\": \"string\",\n    \"family_amount\": 7176\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21395171-6663-4a93-9523-380025a83415",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\",\n  \"giver_email\": \"<string>\",\n  \"parent_bonus_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "14bf7eb2-df0a-472f-add3-a2b2be5810d5",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\",\n  \"giver_email\": \"<string>\",\n  \"parent_bonus_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5001a44e-696c-4400-a79a-2e767e54f8c8",
+          "name": "Delete a bonus",
+          "request": {
+            "name": "Delete a bonus",
+            "description": {
+              "content": "Deletes a bonus by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bonuses",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03735ada-c582-4050-b41f-573e7f92794a",
+              "name": "The bonus was deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "69ad7227-c6a0-462c-a0d9-ea65fd02d796",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "504dce9f-6637-433d-8db3-31a767b1616b",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bonuses",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bonus.ly/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0354dc13-dbb2-4faf-9164-6ca24ea9a066",
+    "name": "Bonusly Analytics Bonuses API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform. It exposes bonuses (peer-to-peer recognition posts that carry points), users, the reward catalog, redemptions, awards, company settings, and analytics. All endpoints are served under the base https://bonus.ly/api/v1 and authenticated with a Bearer personal access token (PAT) minted by a Global or Tech admin, with fine-grained read / write / administer scopes per resource. A token that lacks the required scope returns 403 Forbidden. A newer public surface is also available under https://bonus.ly/api/public. API access is available on paid Bonusly plans. This description models the publicly documented endpoints; verify exact request and response shapes against the live reference at https://docs.bonus.ly.\n\nContact Support:\n Name: Bonusly",
+      "type": "text/plain"
+    }
+  }
+}

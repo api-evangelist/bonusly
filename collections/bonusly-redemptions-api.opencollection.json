@@ -1,0 +1,121 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bonusly Analytics Redemptions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Redemptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List redemptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/redemptions",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists redemptions across the company, with optional pagination and filters."
+        },
+        {
+          "info": {
+            "name": "Retrieve a redemption",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/redemptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a single redemption by its ID."
+        },
+        {
+          "info": {
+            "name": "Create a user redemption",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bonus.ly/api/v1/user_redemptions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Redeems a reward on behalf of a user, spending earned points from their balance."
+        },
+        {
+          "info": {
+            "name": "List custom reward redemptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/custom_reward_redemptions"
+          },
+          "docs": "Lists redemptions of custom company rewards, which follow an approve-and-fulfill workflow."
+        },
+        {
+          "info": {
+            "name": "Approve custom reward redemptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bonus.ly/api/v1/custom_reward_redemptions/approve",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Approves one or more pending custom reward redemptions. Requires an administrator-scoped token."
+        },
+        {
+          "info": {
+            "name": "Fulfill custom reward redemptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bonus.ly/api/v1/custom_reward_redemptions/fulfill",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Marks one or more approved custom reward redemptions as fulfilled. Requires an administrator-scoped token."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

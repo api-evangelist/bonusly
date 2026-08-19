@@ -1,0 +1,932 @@
+{
+  "item": [
+    {
+      "id": "70552a1b-5a4d-482a-aeec-c91b29475578",
+      "name": "Redemptions",
+      "description": {
+        "content": "Conversions of earned points into rewards.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0ae82ed0-3a30-42aa-9d10-75028c9f6fd0",
+          "name": "List redemptions",
+          "request": {
+            "name": "List redemptions",
+            "description": {
+              "content": "Lists redemptions across the company, with optional pagination and filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "redemptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ceae923-a7fb-48bb-a326-e2653d6a69eb",
+              "name": "A list of redemptions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "redemptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"result\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"2000-09-14T19:48:28.695Z\",\n      \"display_name\": \"string\",\n      \"amount\": 4414,\n      \"amount_with_currency\": \"string\",\n      \"reward_amount\": 2889.516048104257,\n      \"currency_code\": \"string\",\n      \"reward_type\": \"string\",\n      \"status\": \"string\",\n      \"user\": {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": false,\n        \"earning_balance\": 7302,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 4244,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": false,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"1983-04-23T01:33:04.717Z\",\n      \"display_name\": \"string\",\n      \"amount\": 268,\n      \"amount_with_currency\": \"string\",\n      \"reward_amount\": 1971.470320693939,\n      \"currency_code\": \"string\",\n      \"reward_type\": \"string\",\n      \"status\": \"string\",\n      \"user\": {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": true,\n        \"earning_balance\": 5545,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 8587,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": false,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad97739a-c2f5-409d-8d1b-3e5a11163b08",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "redemptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dfcb0a3f-fe5e-4b5d-aa01-14e0ee497a55",
+          "name": "Retrieve a redemption",
+          "request": {
+            "name": "Retrieve a redemption",
+            "description": {
+              "content": "Retrieves a single redemption by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "redemptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a23f9fe4-da5f-471c-8977-023530bba855",
+              "name": "The requested redemption.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "redemptions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"result\": {\n    \"id\": \"string\",\n    \"created_at\": \"1975-07-22T12:13:20.763Z\",\n    \"display_name\": \"string\",\n    \"amount\": 2593,\n    \"amount_with_currency\": \"string\",\n    \"reward_amount\": 5280.154671208634,\n    \"currency_code\": \"string\",\n    \"reward_type\": \"string\",\n    \"status\": \"string\",\n    \"user\": {\n      \"id\": \"string\",\n      \"short_name\": \"string\",\n      \"display_name\": \"string\",\n      \"username\": \"string\",\n      \"email\": \"string\",\n      \"full_name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"path\": \"string\",\n      \"full_pic_url\": \"string\",\n      \"profile_pic_url\": \"string\",\n      \"can_give\": false,\n      \"earning_balance\": 3955,\n      \"earning_balance_with_currency\": \"string\",\n      \"giving_balance\": 7412,\n      \"giving_balance_with_currency\": \"string\",\n      \"can_receive\": true,\n      \"department\": \"string\",\n      \"country\": \"string\",\n      \"time_zone\": \"string\",\n      \"user_mode\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac91315e-a8bf-4452-a2ad-f8843de78012",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "redemptions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d0b152fc-0c0d-4874-846c-f61927423be2",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "redemptions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f257ca9d-d031-4656-808b-b2efdafe0585",
+          "name": "Create a user redemption",
+          "request": {
+            "name": "Create a user redemption",
+            "description": {
+              "content": "Redeems a reward on behalf of a user, spending earned points from their balance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user_redemptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"<string>\",\n  \"reward_request\": \"<string>\",\n  \"denomination\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fe7eb0f5-4f91-490b-ae33-4ac1e53e6091",
+              "name": "The created redemption.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user_redemptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id\": \"<string>\",\n  \"reward_request\": \"<string>\",\n  \"denomination\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"result\": {\n    \"id\": \"string\",\n    \"created_at\": \"1975-07-22T12:13:20.763Z\",\n    \"display_name\": \"string\",\n    \"amount\": 2593,\n    \"amount_with_currency\": \"string\",\n    \"reward_amount\": 5280.154671208634,\n    \"currency_code\": \"string\",\n    \"reward_type\": \"string\",\n    \"status\": \"string\",\n    \"user\": {\n      \"id\": \"string\",\n      \"short_name\": \"string\",\n      \"display_name\": \"string\",\n      \"username\": \"string\",\n      \"email\": \"string\",\n      \"full_name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"path\": \"string\",\n      \"full_pic_url\": \"string\",\n      \"profile_pic_url\": \"string\",\n      \"can_give\": false,\n      \"earning_balance\": 3955,\n      \"earning_balance_with_currency\": \"string\",\n      \"giving_balance\": 7412,\n      \"giving_balance_with_currency\": \"string\",\n      \"can_receive\": true,\n      \"department\": \"string\",\n      \"country\": \"string\",\n      \"time_zone\": \"string\",\n      \"user_mode\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "434da7c9-1031-476d-b6ff-207d3d5ac51d",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user_redemptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id\": \"<string>\",\n  \"reward_request\": \"<string>\",\n  \"denomination\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8629a5d7-126b-40a4-919f-3e7677c84218",
+              "name": "The request was well-formed but could not be processed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user_redemptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id\": \"<string>\",\n  \"reward_request\": \"<string>\",\n  \"denomination\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6fde2754-ad6f-4cf8-9596-f5be91d21d25",
+          "name": "List custom reward redemptions",
+          "request": {
+            "name": "List custom reward redemptions",
+            "description": {
+              "content": "Lists redemptions of custom company rewards, which follow an approve-and-fulfill workflow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom_reward_redemptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef98dc52-a7e7-47d8-a2dc-a20ad4ab2ac2",
+              "name": "A list of custom reward redemptions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_reward_redemptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"result\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"2000-09-14T19:48:28.695Z\",\n      \"display_name\": \"string\",\n      \"amount\": 4414,\n      \"amount_with_currency\": \"string\",\n      \"reward_amount\": 2889.516048104257,\n      \"currency_code\": \"string\",\n      \"reward_type\": \"string\",\n      \"status\": \"string\",\n      \"user\": {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": false,\n        \"earning_balance\": 7302,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 4244,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": false,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"1983-04-23T01:33:04.717Z\",\n      \"display_name\": \"string\",\n      \"amount\": 268,\n      \"amount_with_currency\": \"string\",\n      \"reward_amount\": 1971.470320693939,\n      \"currency_code\": \"string\",\n      \"reward_type\": \"string\",\n      \"status\": \"string\",\n      \"user\": {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": true,\n        \"earning_balance\": 5545,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 8587,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": false,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87b8c9b9-2f07-4831-a880-96998cf99f54",
+          "name": "Approve custom reward redemptions",
+          "request": {
+            "name": "Approve custom reward redemptions",
+            "description": {
+              "content": "Approves one or more pending custom reward redemptions. Requires an administrator-scoped token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom_reward_redemptions",
+                "approve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "73721d50-6d95-4861-9b5b-a3407278313e",
+              "name": "The redemptions were approved.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_reward_redemptions",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6f93693d-8600-470a-b9ef-44469c500e2f",
+              "name": "The token lacks the scope required for this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_reward_redemptions",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "625f5aaa-5a80-4c44-8819-99716e432d75",
+          "name": "Fulfill custom reward redemptions",
+          "request": {
+            "name": "Fulfill custom reward redemptions",
+            "description": {
+              "content": "Marks one or more approved custom reward redemptions as fulfilled. Requires an administrator-scoped token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom_reward_redemptions",
+                "fulfill"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5bc2678-7ae0-4c13-abf8-dfb1eac46867",
+              "name": "The redemptions were fulfilled.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_reward_redemptions",
+                    "fulfill"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8190c7b5-670e-4962-9bfb-3e91f63febc6",
+              "name": "The token lacks the scope required for this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom_reward_redemptions",
+                    "fulfill"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bonus.ly/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fb20622e-83e2-4dab-a13c-dc2d3c745b63",
+    "name": "Bonusly Analytics Redemptions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform. It exposes bonuses (peer-to-peer recognition posts that carry points), users, the reward catalog, redemptions, awards, company settings, and analytics. All endpoints are served under the base https://bonus.ly/api/v1 and authenticated with a Bearer personal access token (PAT) minted by a Global or Tech admin, with fine-grained read / write / administer scopes per resource. A token that lacks the required scope returns 403 Forbidden. A newer public surface is also available under https://bonus.ly/api/public. API access is available on paid Bonusly plans. This description models the publicly documented endpoints; verify exact request and response shapes against the live reference at https://docs.bonus.ly.\n\nContact Support:\n Name: Bonusly",
+      "type": "text/plain"
+    }
+  }
+}

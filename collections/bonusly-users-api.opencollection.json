@@ -1,0 +1,213 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bonusly Analytics Users API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/users",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists users in the company, with optional filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Create a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bonus.ly/api/v1/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates (invites) a new user in the company. Requires an administrator-scoped token."
+        },
+        {
+          "info": {
+            "name": "Retrieve a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves a single user by ID."
+        },
+        {
+          "info": {
+            "name": "Update a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bonus.ly/api/v1/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a user's profile fields, such as display name, email, or budget. Requires an administrator-scoped token."
+        },
+        {
+          "info": {
+            "name": "Deactivate a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bonus.ly/api/v1/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deactivates (archives) a user. Requires an administrator-scoped token."
+        },
+        {
+          "info": {
+            "name": "Retrieve the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/users/me"
+          },
+          "docs": "Returns the user associated with the access token used to make the request."
+        },
+        {
+          "info": {
+            "name": "Autocomplete users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/users/autocomplete",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns users matching a partial name or email, for building recognition input fields."
+        },
+        {
+          "info": {
+            "name": "List a user's bonuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/users/:id/bonuses",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists bonuses given or received by a specific user."
+        },
+        {
+          "info": {
+            "name": "List a user's redemptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/users/:id/redemptions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists redemptions made by a specific user."
+        },
+        {
+          "info": {
+            "name": "List a user's achievements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/users/:id/achievements",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists achievements earned by a specific user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bonusly Analytics Company API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Company",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/company"
+          },
+          "docs": "Retrieves company-level settings and configuration for the account tied to the access token."
+        },
+        {
+          "info": {
+            "name": "Update company",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bonus.ly/api/v1/company",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates company-level settings. Requires an administrator-scoped token."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

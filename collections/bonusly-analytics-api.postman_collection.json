@@ -1,0 +1,533 @@
+{
+  "item": [
+    {
+      "id": "1ca5f6b5-0bb1-4822-97ec-39dfc0524b1b",
+      "name": "Analytics",
+      "description": {
+        "content": "Snapshots and lists of recognition activity for reporting.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ba0fb4d8-6727-4754-ba01-c48e1e418f45",
+          "name": "Analytics healthcheck",
+          "request": {
+            "name": "Analytics healthcheck",
+            "description": {
+              "content": "Returns the availability status of the analytics subsystem.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "analytics",
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6d12bc6-ee76-48b3-b08d-8c2f20a72285",
+              "name": "Analytics is available.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics",
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89a6f2f9-dbee-4302-affc-f51d2754d98b",
+          "name": "Queue an analytics users snapshot",
+          "request": {
+            "name": "Queue an analytics users snapshot",
+            "description": {
+              "content": "Queues an asynchronous snapshot of analytics users. Returns a snapshot ID to poll for status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "analytics",
+                "snapshots",
+                "analytics_users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1106a7cc-62bf-47a8-820a-bfa4ce720072",
+              "name": "The snapshot was queued.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics",
+                    "snapshots",
+                    "analytics_users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"string\",\n  \"created_at\": \"2005-10-09T12:09:01.873Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a110a3ad-eeb9-47fb-95fa-c30216e7e705",
+          "name": "Queue a recognition events snapshot",
+          "request": {
+            "name": "Queue a recognition events snapshot",
+            "description": {
+              "content": "Queues an asynchronous snapshot of recognition events. Returns a snapshot ID to poll for status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "analytics",
+                "snapshots",
+                "recognition_events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bf10e11-c969-4e7c-8790-220069f8af5d",
+              "name": "The snapshot was queued.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics",
+                    "snapshots",
+                    "recognition_events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"string\",\n  \"created_at\": \"2005-10-09T12:09:01.873Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b210fcb6-0270-4981-a135-6b78e4e447a0",
+          "name": "Get snapshot status",
+          "request": {
+            "name": "Get snapshot status",
+            "description": {
+              "content": "Returns the processing status of a queued analytics snapshot.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "analytics",
+                "snapshots",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "def775e1-885c-4c36-b23b-01c61671672b",
+              "name": "The snapshot status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics",
+                    "snapshots",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"string\",\n  \"created_at\": \"2005-10-09T12:09:01.873Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cdef919-4a60-4d12-bacf-8071120bb9b3",
+          "name": "List analytics users",
+          "request": {
+            "name": "List analytics users",
+            "description": {
+              "content": "Lists the rows of a completed analytics users snapshot.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "analytics",
+                "analytics_users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "35972374-fb31-4d50-ac21-220ab6cebf46",
+              "name": "Analytics user rows.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics",
+                    "analytics_users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8dcbd8c6-0a13-486e-831f-9295c30a1715",
+          "name": "List recognition events",
+          "request": {
+            "name": "List recognition events",
+            "description": {
+              "content": "Lists the rows of a completed recognition events snapshot.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "analytics",
+                "recognition_events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d9298fa-52dc-4e40-90d8-522f8a0121cd",
+              "name": "Recognition event rows.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics",
+                    "recognition_events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bonus.ly/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3861c8c0-9bca-4793-a0b7-11cffb5184b5",
+    "name": "Bonusly Analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform. It exposes bonuses (peer-to-peer recognition posts that carry points), users, the reward catalog, redemptions, awards, company settings, and analytics. All endpoints are served under the base https://bonus.ly/api/v1 and authenticated with a Bearer personal access token (PAT) minted by a Global or Tech admin, with fine-grained read / write / administer scopes per resource. A token that lacks the required scope returns 403 Forbidden. A newer public surface is also available under https://bonus.ly/api/public. API access is available on paid Bonusly plans. This description models the publicly documented endpoints; verify exact request and response shapes against the live reference at https://docs.bonus.ly.\n\nContact Support:\n Name: Bonusly",
+      "type": "text/plain"
+    }
+  }
+}

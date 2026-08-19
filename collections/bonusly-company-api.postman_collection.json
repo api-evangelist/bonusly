@@ -1,0 +1,304 @@
+{
+  "item": [
+    {
+      "id": "63c470dc-aab4-4ecd-a4b8-a54d9c23b8bc",
+      "name": "Company",
+      "description": {
+        "content": "Company-level settings and achievements.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0abd73fb-2d83-48c5-857c-5d647ec89d90",
+          "name": "Retrieve company",
+          "request": {
+            "name": "Retrieve company",
+            "description": {
+              "content": "Retrieves company-level settings and configuration for the account tied to the access token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "company"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "90d84f58-2ef1-49b4-9764-acf820fc4632",
+              "name": "The company.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"result\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"subdomain\": \"string\",\n    \"allow_self_registration\": false,\n    \"base_allowance\": 5657,\n    \"currency_code\": \"string\",\n    \"default_country\": \"string\",\n    \"company_newsfeed_enabled\": true,\n    \"values\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ad12d41-b40d-4bd3-9e9a-f824a7a32822",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96df2934-8c8d-4a21-8179-75df1f90ae66",
+          "name": "Update company",
+          "request": {
+            "name": "Update company",
+            "description": {
+              "content": "Updates company-level settings. Requires an administrator-scoped token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "company"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"subdomain\": \"<string>\",\n  \"allow_self_registration\": \"<boolean>\",\n  \"base_allowance\": \"<integer>\",\n  \"currency_code\": \"<string>\",\n  \"default_country\": \"<string>\",\n  \"company_newsfeed_enabled\": \"<boolean>\",\n  \"values\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "27a2d474-7c7e-4ed7-9cd5-128c5e323086",
+              "name": "The updated company.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"subdomain\": \"<string>\",\n  \"allow_self_registration\": \"<boolean>\",\n  \"base_allowance\": \"<integer>\",\n  \"currency_code\": \"<string>\",\n  \"default_country\": \"<string>\",\n  \"company_newsfeed_enabled\": \"<boolean>\",\n  \"values\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"result\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"subdomain\": \"<string>\",\n    \"allow_self_registration\": \"<boolean>\",\n    \"base_allowance\": \"<integer>\",\n    \"currency_code\": \"<string>\",\n    \"default_country\": \"<string>\",\n    \"company_newsfeed_enabled\": \"<boolean>\",\n    \"values\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c83656ca-253b-4930-8909-2e07155457b1",
+              "name": "The token lacks the scope required for this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"subdomain\": \"<string>\",\n  \"allow_self_registration\": \"<boolean>\",\n  \"base_allowance\": \"<integer>\",\n  \"currency_code\": \"<string>\",\n  \"default_country\": \"<string>\",\n  \"company_newsfeed_enabled\": \"<boolean>\",\n  \"values\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bonus.ly/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "efbed0ac-7b35-40bc-950c-b816438d2952",
+    "name": "Bonusly Analytics Company API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform. It exposes bonuses (peer-to-peer recognition posts that carry points), users, the reward catalog, redemptions, awards, company settings, and analytics. All endpoints are served under the base https://bonus.ly/api/v1 and authenticated with a Bearer personal access token (PAT) minted by a Global or Tech admin, with fine-grained read / write / administer scopes per resource. A token that lacks the required scope returns 403 Forbidden. A newer public surface is also available under https://bonus.ly/api/public. API access is available on paid Bonusly plans. This description models the publicly documented endpoints; verify exact request and response shapes against the live reference at https://docs.bonus.ly.\n\nContact Support:\n Name: Bonusly",
+      "type": "text/plain"
+    }
+  }
+}

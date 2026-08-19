@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bonusly Analytics Rewards API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rewards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List rewards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/rewards",
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "ISO country code used to scope the gift-card catalog."
+              },
+              {
+                "name": "request",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists rewards available in the redemption catalog - gift cards, donations, and custom company rewards - optionally filtered by country and reward request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

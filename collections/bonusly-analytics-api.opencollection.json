@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bonusly Analytics API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Analytics healthcheck",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/analytics/health"
+          },
+          "docs": "Returns the availability status of the analytics subsystem."
+        },
+        {
+          "info": {
+            "name": "Queue an analytics users snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bonus.ly/api/v1/analytics/snapshots/analytics_users"
+          },
+          "docs": "Queues an asynchronous snapshot of analytics users. Returns a snapshot ID to poll for status."
+        },
+        {
+          "info": {
+            "name": "Queue a recognition events snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bonus.ly/api/v1/analytics/snapshots/recognition_events"
+          },
+          "docs": "Queues an asynchronous snapshot of recognition events. Returns a snapshot ID to poll for status."
+        },
+        {
+          "info": {
+            "name": "Get snapshot status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/analytics/snapshots/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the processing status of a queued analytics snapshot."
+        },
+        {
+          "info": {
+            "name": "List analytics users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/analytics/analytics_users"
+          },
+          "docs": "Lists the rows of a completed analytics users snapshot."
+        },
+        {
+          "info": {
+            "name": "List recognition events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bonus.ly/api/v1/analytics/recognition_events"
+          },
+          "docs": "Lists the rows of a completed recognition events snapshot."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

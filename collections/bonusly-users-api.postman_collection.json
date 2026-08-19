@@ -1,0 +1,1515 @@
+{
+  "item": [
+    {
+      "id": "5a206900-e5ca-41fd-9169-eb88a3f4681e",
+      "name": "Users",
+      "description": {
+        "content": "Company members who give and receive recognition.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "19bfd760-9680-48e0-a932-fa6c6165e159",
+          "name": "List users",
+          "request": {
+            "name": "List users",
+            "description": {
+              "content": "Lists users in the company, with optional filtering and pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08bd7c24-e67d-4087-8838-975c92443c74",
+              "name": "A list of users.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"result\": [\n    {\n      \"id\": \"string\",\n      \"short_name\": \"string\",\n      \"display_name\": \"string\",\n      \"username\": \"string\",\n      \"email\": \"string\",\n      \"full_name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"path\": \"string\",\n      \"full_pic_url\": \"string\",\n      \"profile_pic_url\": \"string\",\n      \"can_give\": true,\n      \"earning_balance\": 4645,\n      \"earning_balance_with_currency\": \"string\",\n      \"giving_balance\": 9973,\n      \"giving_balance_with_currency\": \"string\",\n      \"can_receive\": true,\n      \"department\": \"string\",\n      \"country\": \"string\",\n      \"time_zone\": \"string\",\n      \"user_mode\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"short_name\": \"string\",\n      \"display_name\": \"string\",\n      \"username\": \"string\",\n      \"email\": \"string\",\n      \"full_name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"path\": \"string\",\n      \"full_pic_url\": \"string\",\n      \"profile_pic_url\": \"string\",\n      \"can_give\": false,\n      \"earning_balance\": 8746,\n      \"earning_balance_with_currency\": \"string\",\n      \"giving_balance\": 4910,\n      \"giving_balance_with_currency\": \"string\",\n      \"can_receive\": true,\n      \"department\": \"string\",\n      \"country\": \"string\",\n      \"time_zone\": \"string\",\n      \"user_mode\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6fb2ba15-33bc-42ad-90e2-8705a9d61f83",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "547e8859-6203-4925-9129-656975039612",
+          "name": "Create a user",
+          "request": {
+            "name": "Create a user",
+            "description": {
+              "content": "Creates (invites) a new user in the company. Requires an administrator-scoped token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"budget_boost\": \"<integer>\",\n  \"user_mode\": \"<string>\",\n  \"role\": \"<string>\",\n  \"department\": \"<string>\",\n  \"country\": \"<string>\",\n  \"time_zone\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bae422a2-1ecd-44a4-a091-233f0da9101e",
+              "name": "The created user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"budget_boost\": \"<integer>\",\n  \"user_mode\": \"<string>\",\n  \"role\": \"<string>\",\n  \"department\": \"<string>\",\n  \"country\": \"<string>\",\n  \"time_zone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"result\": {\n    \"id\": \"string\",\n    \"short_name\": \"string\",\n    \"display_name\": \"string\",\n    \"username\": \"string\",\n    \"email\": \"string\",\n    \"full_name\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"path\": \"string\",\n    \"full_pic_url\": \"string\",\n    \"profile_pic_url\": \"string\",\n    \"can_give\": false,\n    \"earning_balance\": 3534,\n    \"earning_balance_with_currency\": \"string\",\n    \"giving_balance\": 2449,\n    \"giving_balance_with_currency\": \"string\",\n    \"can_receive\": true,\n    \"department\": \"string\",\n    \"country\": \"string\",\n    \"time_zone\": \"string\",\n    \"user_mode\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c608893-7952-4cb5-b5e0-b7b7b5f9cab4",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"budget_boost\": \"<integer>\",\n  \"user_mode\": \"<string>\",\n  \"role\": \"<string>\",\n  \"department\": \"<string>\",\n  \"country\": \"<string>\",\n  \"time_zone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1fc6ee20-0b8f-42a6-8f3a-9e7cf6224119",
+              "name": "The token lacks the scope required for this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"budget_boost\": \"<integer>\",\n  \"user_mode\": \"<string>\",\n  \"role\": \"<string>\",\n  \"department\": \"<string>\",\n  \"country\": \"<string>\",\n  \"time_zone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "195baf51-0dd8-4625-bd35-2d538e0fc04f",
+          "name": "Retrieve a user",
+          "request": {
+            "name": "Retrieve a user",
+            "description": {
+              "content": "Retrieves a single user by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97f79e22-10c0-482a-ab44-1f77b1024c3e",
+              "name": "The requested user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"result\": {\n    \"id\": \"string\",\n    \"short_name\": \"string\",\n    \"display_name\": \"string\",\n    \"username\": \"string\",\n    \"email\": \"string\",\n    \"full_name\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"path\": \"string\",\n    \"full_pic_url\": \"string\",\n    \"profile_pic_url\": \"string\",\n    \"can_give\": false,\n    \"earning_balance\": 3534,\n    \"earning_balance_with_currency\": \"string\",\n    \"giving_balance\": 2449,\n    \"giving_balance_with_currency\": \"string\",\n    \"can_receive\": true,\n    \"department\": \"string\",\n    \"country\": \"string\",\n    \"time_zone\": \"string\",\n    \"user_mode\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77a02884-158e-4d32-9eb4-872b668f47e6",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6d7f8759-7bfc-4ee7-8cdd-7aaf2cd00c53",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5570e3a-52c4-4e1f-a6c8-ce80d6d8766c",
+          "name": "Update a user",
+          "request": {
+            "name": "Update a user",
+            "description": {
+              "content": "Updates a user's profile fields, such as display name, email, or budget. Requires an administrator-scoped token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"budget_boost\": \"<integer>\",\n  \"user_mode\": \"<string>\",\n  \"role\": \"<string>\",\n  \"department\": \"<string>\",\n  \"country\": \"<string>\",\n  \"time_zone\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5f484159-2813-41f7-90eb-28bf61a0f83f",
+              "name": "The updated user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"budget_boost\": \"<integer>\",\n  \"user_mode\": \"<string>\",\n  \"role\": \"<string>\",\n  \"department\": \"<string>\",\n  \"country\": \"<string>\",\n  \"time_zone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"result\": {\n    \"id\": \"string\",\n    \"short_name\": \"string\",\n    \"display_name\": \"string\",\n    \"username\": \"string\",\n    \"email\": \"string\",\n    \"full_name\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"path\": \"string\",\n    \"full_pic_url\": \"string\",\n    \"profile_pic_url\": \"string\",\n    \"can_give\": false,\n    \"earning_balance\": 3534,\n    \"earning_balance_with_currency\": \"string\",\n    \"giving_balance\": 2449,\n    \"giving_balance_with_currency\": \"string\",\n    \"can_receive\": true,\n    \"department\": \"string\",\n    \"country\": \"string\",\n    \"time_zone\": \"string\",\n    \"user_mode\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f1cd3d9-e222-4889-83ba-03415fef7eb6",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"budget_boost\": \"<integer>\",\n  \"user_mode\": \"<string>\",\n  \"role\": \"<string>\",\n  \"department\": \"<string>\",\n  \"country\": \"<string>\",\n  \"time_zone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "320e4321-c8b4-4890-9ca5-d2eaeef262f5",
+              "name": "The token lacks the scope required for this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"budget_boost\": \"<integer>\",\n  \"user_mode\": \"<string>\",\n  \"role\": \"<string>\",\n  \"department\": \"<string>\",\n  \"country\": \"<string>\",\n  \"time_zone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdb8e414-6ea0-42da-9266-611a111f711b",
+          "name": "Deactivate a user",
+          "request": {
+            "name": "Deactivate a user",
+            "description": {
+              "content": "Deactivates (archives) a user. Requires an administrator-scoped token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6fec9668-87e7-4582-b87c-d65725c6cc72",
+              "name": "The user was deactivated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "89b32df2-ecbd-433c-9e71-9930abe9f687",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "320246a9-fe75-4fa3-8f12-92c1e5fc151b",
+              "name": "The token lacks the scope required for this operation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1398b552-4c68-45ad-a0c0-aab3c7d64ca7",
+          "name": "Retrieve the authenticated user",
+          "request": {
+            "name": "Retrieve the authenticated user",
+            "description": {
+              "content": "Returns the user associated with the access token used to make the request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36e23736-78b1-4b3b-a833-4b8223ff2cd2",
+              "name": "The authenticated user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"result\": {\n    \"id\": \"string\",\n    \"short_name\": \"string\",\n    \"display_name\": \"string\",\n    \"username\": \"string\",\n    \"email\": \"string\",\n    \"full_name\": \"string\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"path\": \"string\",\n    \"full_pic_url\": \"string\",\n    \"profile_pic_url\": \"string\",\n    \"can_give\": false,\n    \"earning_balance\": 3534,\n    \"earning_balance_with_currency\": \"string\",\n    \"giving_balance\": 2449,\n    \"giving_balance_with_currency\": \"string\",\n    \"can_receive\": true,\n    \"department\": \"string\",\n    \"country\": \"string\",\n    \"time_zone\": \"string\",\n    \"user_mode\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37a7952a-4851-46a6-a93c-7c11cb2cf729",
+              "name": "The access token is missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ebaeeec-089c-4a73-a9f0-eb0380523f6e",
+          "name": "Autocomplete users",
+          "request": {
+            "name": "Autocomplete users",
+            "description": {
+              "content": "Returns users matching a partial name or email, for building recognition input fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "autocomplete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01c5eca8-e7b6-40fb-912f-0711ec3a9f99",
+              "name": "Matching users.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"result\": [\n    {\n      \"id\": \"string\",\n      \"short_name\": \"string\",\n      \"display_name\": \"string\",\n      \"username\": \"string\",\n      \"email\": \"string\",\n      \"full_name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"path\": \"string\",\n      \"full_pic_url\": \"string\",\n      \"profile_pic_url\": \"string\",\n      \"can_give\": true,\n      \"earning_balance\": 4645,\n      \"earning_balance_with_currency\": \"string\",\n      \"giving_balance\": 9973,\n      \"giving_balance_with_currency\": \"string\",\n      \"can_receive\": true,\n      \"department\": \"string\",\n      \"country\": \"string\",\n      \"time_zone\": \"string\",\n      \"user_mode\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"short_name\": \"string\",\n      \"display_name\": \"string\",\n      \"username\": \"string\",\n      \"email\": \"string\",\n      \"full_name\": \"string\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"path\": \"string\",\n      \"full_pic_url\": \"string\",\n      \"profile_pic_url\": \"string\",\n      \"can_give\": false,\n      \"earning_balance\": 8746,\n      \"earning_balance_with_currency\": \"string\",\n      \"giving_balance\": 4910,\n      \"giving_balance_with_currency\": \"string\",\n      \"can_receive\": true,\n      \"department\": \"string\",\n      \"country\": \"string\",\n      \"time_zone\": \"string\",\n      \"user_mode\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17d73393-5f8f-46bf-947f-b7fabe304779",
+          "name": "List a user's bonuses",
+          "request": {
+            "name": "List a user's bonuses",
+            "description": {
+              "content": "Lists bonuses given or received by a specific user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":id",
+                "bonuses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4ab8b64-56a0-4960-b986-bae2833dec8c",
+              "name": "The user's bonuses.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id",
+                    "bonuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"result\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"1968-05-18T11:47:55.600Z\",\n      \"reason\": \"string\",\n      \"reason_html\": \"string\",\n      \"amount\": 5438,\n      \"amount_with_currency\": \"string\",\n      \"value\": \"string\",\n      \"giver\": {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": true,\n        \"earning_balance\": 8941,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 5047,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": false,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      },\n      \"receivers\": [\n        {\n          \"id\": \"string\",\n          \"short_name\": \"string\",\n          \"display_name\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\",\n          \"full_name\": \"string\",\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"path\": \"string\",\n          \"full_pic_url\": \"string\",\n          \"profile_pic_url\": \"string\",\n          \"can_give\": true,\n          \"earning_balance\": 5995,\n          \"earning_balance_with_currency\": \"string\",\n          \"giving_balance\": 1984,\n          \"giving_balance_with_currency\": \"string\",\n          \"can_receive\": true,\n          \"department\": \"string\",\n          \"country\": \"string\",\n          \"time_zone\": \"string\",\n          \"user_mode\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"short_name\": \"string\",\n          \"display_name\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\",\n          \"full_name\": \"string\",\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"path\": \"string\",\n          \"full_pic_url\": \"string\",\n          \"profile_pic_url\": \"string\",\n          \"can_give\": true,\n          \"earning_balance\": 6353,\n          \"earning_balance_with_currency\": \"string\",\n          \"giving_balance\": 5477,\n          \"giving_balance_with_currency\": \"string\",\n          \"can_receive\": false,\n          \"department\": \"string\",\n          \"country\": \"string\",\n          \"time_zone\": \"string\",\n          \"user_mode\": \"string\"\n        }\n      ],\n      \"hashtag\": \"string\",\n      \"via\": \"string\",\n      \"family_amount\": 3623\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"2015-12-15T12:17:07.702Z\",\n      \"reason\": \"string\",\n      \"reason_html\": \"string\",\n      \"amount\": 4418,\n      \"amount_with_currency\": \"string\",\n      \"value\": \"string\",\n      \"giver\": {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": true,\n        \"earning_balance\": 5342,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 9875,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": false,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      },\n      \"receivers\": [\n        {\n          \"id\": \"string\",\n          \"short_name\": \"string\",\n          \"display_name\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\",\n          \"full_name\": \"string\",\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"path\": \"string\",\n          \"full_pic_url\": \"string\",\n          \"profile_pic_url\": \"string\",\n          \"can_give\": true,\n          \"earning_balance\": 8554,\n          \"earning_balance_with_currency\": \"string\",\n          \"giving_balance\": 8987,\n          \"giving_balance_with_currency\": \"string\",\n          \"can_receive\": true,\n          \"department\": \"string\",\n          \"country\": \"string\",\n          \"time_zone\": \"string\",\n          \"user_mode\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"short_name\": \"string\",\n          \"display_name\": \"string\",\n          \"username\": \"string\",\n          \"email\": \"string\",\n          \"full_name\": \"string\",\n          \"first_name\": \"string\",\n          \"last_name\": \"string\",\n          \"path\": \"string\",\n          \"full_pic_url\": \"string\",\n          \"profile_pic_url\": \"string\",\n          \"can_give\": true,\n          \"earning_balance\": 7158,\n          \"earning_balance_with_currency\": \"string\",\n          \"giving_balance\": 3102,\n          \"giving_balance_with_currency\": \"string\",\n          \"can_receive\": false,\n          \"department\": \"string\",\n          \"country\": \"string\",\n          \"time_zone\": \"string\",\n          \"user_mode\": \"string\"\n        }\n      ],\n      \"hashtag\": \"string\",\n      \"via\": \"string\",\n      \"family_amount\": 6070\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d6a0804-384f-441a-baed-e09948be6151",
+          "name": "List a user's redemptions",
+          "request": {
+            "name": "List a user's redemptions",
+            "description": {
+              "content": "Lists redemptions made by a specific user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":id",
+                "redemptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7497886b-df3e-4457-8155-27cf22743d5a",
+              "name": "The user's redemptions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id",
+                    "redemptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"result\": [\n    {\n      \"id\": \"string\",\n      \"created_at\": \"1993-02-08T00:42:58.399Z\",\n      \"display_name\": \"string\",\n      \"amount\": 5623,\n      \"amount_with_currency\": \"string\",\n      \"reward_amount\": 2255.809575544694,\n      \"currency_code\": \"string\",\n      \"reward_type\": \"string\",\n      \"status\": \"string\",\n      \"user\": {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": true,\n        \"earning_balance\": 7701,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 9347,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": false,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"created_at\": \"2023-05-20T07:15:19.189Z\",\n      \"display_name\": \"string\",\n      \"amount\": 5798,\n      \"amount_with_currency\": \"string\",\n      \"reward_amount\": 9846.34250490995,\n      \"currency_code\": \"string\",\n      \"reward_type\": \"string\",\n      \"status\": \"string\",\n      \"user\": {\n        \"id\": \"string\",\n        \"short_name\": \"string\",\n        \"display_name\": \"string\",\n        \"username\": \"string\",\n        \"email\": \"string\",\n        \"full_name\": \"string\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"path\": \"string\",\n        \"full_pic_url\": \"string\",\n        \"profile_pic_url\": \"string\",\n        \"can_give\": true,\n        \"earning_balance\": 7726,\n        \"earning_balance_with_currency\": \"string\",\n        \"giving_balance\": 8389,\n        \"giving_balance_with_currency\": \"string\",\n        \"can_receive\": true,\n        \"department\": \"string\",\n        \"country\": \"string\",\n        \"time_zone\": \"string\",\n        \"user_mode\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b6dc1ac-f3bc-49a6-83aa-c1e0b4d1fb99",
+          "name": "List a user's achievements",
+          "request": {
+            "name": "List a user's achievements",
+            "description": {
+              "content": "Lists achievements earned by a specific user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":id",
+                "achievements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a5610cd1-0560-46e7-9562-cbf03e46b099",
+              "name": "The user's achievements.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id",
+                    "achievements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bonus.ly/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d492ac3b-4f1a-4c5e-93e1-4f1f6a1b50a4",
+    "name": "Bonusly Analytics Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform. It exposes bonuses (peer-to-peer recognition posts that carry points), users, the reward catalog, redemptions, awards, company settings, and analytics. All endpoints are served under the base https://bonus.ly/api/v1 and authenticated with a Bearer personal access token (PAT) minted by a Global or Tech admin, with fine-grained read / write / administer scopes per resource. A token that lacks the required scope returns 403 Forbidden. A newer public surface is also available under https://bonus.ly/api/public. API access is available on paid Bonusly plans. This description models the publicly documented endpoints; verify exact request and response shapes against the live reference at https://docs.bonus.ly.\n\nContact Support:\n Name: Bonusly",
+      "type": "text/plain"
+    }
+  }
+}
