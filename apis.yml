@@ -181,6 +181,8 @@ apis:
   humanURL: https://docs.bonus.ly/reference/list-bonuses
   baseURL: https://bonus.ly/api/v1
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
