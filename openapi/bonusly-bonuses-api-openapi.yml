@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bonusly Analytics Bonuses API
-  description: The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform. It exposes bonuses (peer-to-peer recognition posts that carry points), users, the reward catalog, redemptions, awards, company settings, and analytics. All endpoints are served under the base https://bonus.ly/api/v1 and authenticated with a Bearer personal access token (PAT) minted by a Global or Tech admin, with fine-grained read / write / administer scopes per resource. A token that lacks the required scope returns 403 Forbidden. A newer public surface is also available under https://bonus.ly/api/public. API access is available on paid Bonusly plans. This description models the publicly documented endpoints; verify exact request and response shapes against the live reference at https://docs.bonus.ly.
+  title: Bonusly Bonuses API
+  description: The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform.
   version: '1.0'
   contact:
     name: Bonusly
@@ -168,28 +168,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    NotFound:
-      description: The requested resource was not found.
-    Forbidden:
-      description: The token lacks the scope required for this operation.
-    Unauthorized:
-      description: The access token is missing or invalid.
-    UnprocessableEntity:
-      description: The request was well-formed but could not be processed.
   schemas:
-    BonusInput:
-      type: object
-      required:
-      - reason
-      properties:
-        reason:
-          type: string
-          description: The recognition text, including receiver mentions, amount, and hashtag.
-        giver_email:
-          type: string
-        parent_bonus_id:
-          type: string
     User:
       type: object
       properties:
@@ -235,6 +214,25 @@ components:
           type: string
         user_mode:
           type: string
+    BonusResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        result:
+          $ref: '#/components/schemas/Bonus'
+    BonusInput:
+      type: object
+      required:
+      - reason
+      properties:
+        reason:
+          type: string
+          description: The recognition text, including receiver mentions, amount, and hashtag.
+        giver_email:
+          type: string
+        parent_bonus_id:
+          type: string
     Bonus:
       type: object
       properties:
@@ -265,13 +263,15 @@ components:
           type: string
         family_amount:
           type: integer
-    BonusResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-        result:
-          $ref: '#/components/schemas/Bonus'
+  responses:
+    UnprocessableEntity:
+      description: The request was well-formed but could not be processed.
+    Forbidden:
+      description: The token lacks the scope required for this operation.
+    NotFound:
+      description: The requested resource was not found.
+    Unauthorized:
+      description: The access token is missing or invalid.
   securitySchemes:
     bearerAuth:
       type: http

@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Bonusly Analytics Company API
-  description: The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform. It exposes bonuses (peer-to-peer recognition posts that carry points), users, the reward catalog, redemptions, awards, company settings, and analytics. All endpoints are served under the base https://bonus.ly/api/v1 and authenticated with a Bearer personal access token (PAT) minted by a Global or Tech admin, with fine-grained read / write / administer scopes per resource. A token that lacks the required scope returns 403 Forbidden. A newer public surface is also available under https://bonus.ly/api/public. API access is available on paid Bonusly plans. This description models the publicly documented endpoints; verify exact request and response shapes against the live reference at https://docs.bonus.ly.
+  title: Bonusly Company API
+  description: The Bonusly API is the REST interface behind the Bonusly employee recognition and rewards platform.
   version: '1.0'
   contact:
     name: Bonusly
@@ -65,6 +65,11 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 components:
+  responses:
+    Forbidden:
+      description: The token lacks the scope required for this operation.
+    Unauthorized:
+      description: The access token is missing or invalid.
   schemas:
     Company:
       type: object
@@ -89,11 +94,6 @@ components:
           type: array
           items:
             type: string
-  responses:
-    Unauthorized:
-      description: The access token is missing or invalid.
-    Forbidden:
-      description: The token lacks the scope required for this operation.
   securitySchemes:
     bearerAuth:
       type: http

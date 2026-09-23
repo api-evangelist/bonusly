@@ -1,12 +1,7 @@
 {
   "provider": "bonusly",
   "sources": [
-    "bonusly-analytics-api-openapi.yml",
-    "bonusly-bonuses-api-openapi.yml",
-    "bonusly-company-api-openapi.yml",
-    "bonusly-redemptions-api-openapi.yml",
-    "bonusly-rewards-api-openapi.yml",
-    "bonusly-users-api-openapi.yml"
+    "_original/bonusly-openapi.yml"
   ],
   "outputs": [
     "bonusly-analytics-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "bonusly-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "bonusly-analytics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bonusly-bonuses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bonusly-company-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bonusly-redemptions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bonusly-rewards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bonusly-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
