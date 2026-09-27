@@ -254,14 +254,14 @@ components:
         user:
           $ref: '#/components/schemas/User'
   responses:
-    UnprocessableEntity:
-      description: The request was well-formed but could not be processed.
-    Forbidden:
-      description: The token lacks the scope required for this operation.
-    NotFound:
-      description: The requested resource was not found.
     Unauthorized:
       description: The access token is missing or invalid.
+    UnprocessableEntity:
+      description: The request was well-formed but could not be processed.
+    NotFound:
+      description: The requested resource was not found.
+    Forbidden:
+      description: The token lacks the scope required for this operation.
   securitySchemes:
     bearerAuth:
       type: http

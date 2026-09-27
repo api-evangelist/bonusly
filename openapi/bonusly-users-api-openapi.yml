@@ -312,13 +312,36 @@ components:
           type: string
         user_mode:
           type: string
-    UserResponse:
+    Bonus:
       type: object
       properties:
-        success:
-          type: boolean
-        result:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        reason:
+          type: string
+        reason_html:
+          type: string
+        amount:
+          type: integer
+        amount_with_currency:
+          type: string
+        value:
+          type: string
+        giver:
           $ref: '#/components/schemas/User'
+        receivers:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        hashtag:
+          type: string
+        via:
+          type: string
+        family_amount:
+          type: integer
     Redemption:
       type: object
       properties:
@@ -366,43 +389,20 @@ components:
           type: string
         time_zone:
           type: string
-    Bonus:
+    UserResponse:
       type: object
       properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        reason:
-          type: string
-        reason_html:
-          type: string
-        amount:
-          type: integer
-        amount_with_currency:
-          type: string
-        value:
-          type: string
-        giver:
+        success:
+          type: boolean
+        result:
           $ref: '#/components/schemas/User'
-        receivers:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-        hashtag:
-          type: string
-        via:
-          type: string
-        family_amount:
-          type: integer
   responses:
-    Forbidden:
-      description: The token lacks the scope required for this operation.
-    NotFound:
-      description: The requested resource was not found.
     Unauthorized:
       description: The access token is missing or invalid.
+    NotFound:
+      description: The requested resource was not found.
+    Forbidden:
+      description: The token lacks the scope required for this operation.
   securitySchemes:
     bearerAuth:
       type: http
