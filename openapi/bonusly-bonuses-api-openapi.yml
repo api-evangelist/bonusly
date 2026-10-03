@@ -169,51 +169,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    User:
-      type: object
-      properties:
-        id:
-          type: string
-        short_name:
-          type: string
-        display_name:
-          type: string
-        username:
-          type: string
-        email:
-          type: string
-        full_name:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        path:
-          type: string
-        full_pic_url:
-          type: string
-        profile_pic_url:
-          type: string
-        can_give:
-          type: boolean
-        earning_balance:
-          type: integer
-        earning_balance_with_currency:
-          type: string
-        giving_balance:
-          type: integer
-        giving_balance_with_currency:
-          type: string
-        can_receive:
-          type: boolean
-        department:
-          type: string
-        country:
-          type: string
-        time_zone:
-          type: string
-        user_mode:
-          type: string
     Bonus:
       type: object
       properties:
@@ -263,15 +218,60 @@ components:
           type: string
         parent_bonus_id:
           type: string
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        short_name:
+          type: string
+        display_name:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+        full_name:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        path:
+          type: string
+        full_pic_url:
+          type: string
+        profile_pic_url:
+          type: string
+        can_give:
+          type: boolean
+        earning_balance:
+          type: integer
+        earning_balance_with_currency:
+          type: string
+        giving_balance:
+          type: integer
+        giving_balance_with_currency:
+          type: string
+        can_receive:
+          type: boolean
+        department:
+          type: string
+        country:
+          type: string
+        time_zone:
+          type: string
+        user_mode:
+          type: string
   responses:
-    Unauthorized:
-      description: The access token is missing or invalid.
-    UnprocessableEntity:
-      description: The request was well-formed but could not be processed.
-    NotFound:
-      description: The requested resource was not found.
     Forbidden:
       description: The token lacks the scope required for this operation.
+    UnprocessableEntity:
+      description: The request was well-formed but could not be processed.
+    Unauthorized:
+      description: The access token is missing or invalid.
+    NotFound:
+      description: The requested resource was not found.
   securitySchemes:
     bearerAuth:
       type: http

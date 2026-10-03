@@ -267,6 +267,90 @@ paths:
                       type: object
 components:
   schemas:
+    UserResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        result:
+          $ref: '#/components/schemas/User'
+    Bonus:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        reason:
+          type: string
+        reason_html:
+          type: string
+        amount:
+          type: integer
+        amount_with_currency:
+          type: string
+        value:
+          type: string
+        giver:
+          $ref: '#/components/schemas/User'
+        receivers:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        hashtag:
+          type: string
+        via:
+          type: string
+        family_amount:
+          type: integer
+    UserInput:
+      type: object
+      properties:
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        display_name:
+          type: string
+        budget_boost:
+          type: integer
+        user_mode:
+          type: string
+        role:
+          type: string
+        department:
+          type: string
+        country:
+          type: string
+        time_zone:
+          type: string
+    Redemption:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        display_name:
+          type: string
+        amount:
+          type: integer
+        amount_with_currency:
+          type: string
+        reward_amount:
+          type: number
+        currency_code:
+          type: string
+        reward_type:
+          type: string
+        status:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
     User:
       type: object
       properties:
@@ -312,97 +396,13 @@ components:
           type: string
         user_mode:
           type: string
-    Bonus:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        reason:
-          type: string
-        reason_html:
-          type: string
-        amount:
-          type: integer
-        amount_with_currency:
-          type: string
-        value:
-          type: string
-        giver:
-          $ref: '#/components/schemas/User'
-        receivers:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-        hashtag:
-          type: string
-        via:
-          type: string
-        family_amount:
-          type: integer
-    Redemption:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        display_name:
-          type: string
-        amount:
-          type: integer
-        amount_with_currency:
-          type: string
-        reward_amount:
-          type: number
-        currency_code:
-          type: string
-        reward_type:
-          type: string
-        status:
-          type: string
-        user:
-          $ref: '#/components/schemas/User'
-    UserInput:
-      type: object
-      properties:
-        email:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        display_name:
-          type: string
-        budget_boost:
-          type: integer
-        user_mode:
-          type: string
-        role:
-          type: string
-        department:
-          type: string
-        country:
-          type: string
-        time_zone:
-          type: string
-    UserResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-        result:
-          $ref: '#/components/schemas/User'
   responses:
+    Forbidden:
+      description: The token lacks the scope required for this operation.
     Unauthorized:
       description: The access token is missing or invalid.
     NotFound:
       description: The requested resource was not found.
-    Forbidden:
-      description: The token lacks the scope required for this operation.
   securitySchemes:
     bearerAuth:
       type: http

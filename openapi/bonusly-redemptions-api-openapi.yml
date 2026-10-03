@@ -183,7 +183,40 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 components:
+  responses:
+    Forbidden:
+      description: The token lacks the scope required for this operation.
+    UnprocessableEntity:
+      description: The request was well-formed but could not be processed.
+    Unauthorized:
+      description: The access token is missing or invalid.
+    NotFound:
+      description: The requested resource was not found.
   schemas:
+    Redemption:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        display_name:
+          type: string
+        amount:
+          type: integer
+        amount_with_currency:
+          type: string
+        reward_amount:
+          type: number
+        currency_code:
+          type: string
+        reward_type:
+          type: string
+        status:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
     User:
       type: object
       properties:
@@ -229,39 +262,6 @@ components:
           type: string
         user_mode:
           type: string
-    Redemption:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        display_name:
-          type: string
-        amount:
-          type: integer
-        amount_with_currency:
-          type: string
-        reward_amount:
-          type: number
-        currency_code:
-          type: string
-        reward_type:
-          type: string
-        status:
-          type: string
-        user:
-          $ref: '#/components/schemas/User'
-  responses:
-    Unauthorized:
-      description: The access token is missing or invalid.
-    UnprocessableEntity:
-      description: The request was well-formed but could not be processed.
-    NotFound:
-      description: The requested resource was not found.
-    Forbidden:
-      description: The token lacks the scope required for this operation.
   securitySchemes:
     bearerAuth:
       type: http

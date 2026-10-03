@@ -65,6 +65,11 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 components:
+  responses:
+    Forbidden:
+      description: The token lacks the scope required for this operation.
+    Unauthorized:
+      description: The access token is missing or invalid.
   schemas:
     Company:
       type: object
@@ -89,11 +94,6 @@ components:
           type: array
           items:
             type: string
-  responses:
-    Forbidden:
-      description: The token lacks the scope required for this operation.
-    Unauthorized:
-      description: The access token is missing or invalid.
   securitySchemes:
     bearerAuth:
       type: http
