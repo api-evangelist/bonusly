@@ -66,10 +66,10 @@ paths:
           $ref: '#/components/responses/Forbidden'
 components:
   responses:
-    Forbidden:
-      description: The token lacks the scope required for this operation.
     Unauthorized:
       description: The access token is missing or invalid.
+    Forbidden:
+      description: The token lacks the scope required for this operation.
   schemas:
     Company:
       type: object

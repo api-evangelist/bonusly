@@ -168,56 +168,16 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    Forbidden:
+      description: The token lacks the scope required for this operation.
+    UnprocessableEntity:
+      description: The request was well-formed but could not be processed.
+    Unauthorized:
+      description: The access token is missing or invalid.
+    NotFound:
+      description: The requested resource was not found.
   schemas:
-    Bonus:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        reason:
-          type: string
-        reason_html:
-          type: string
-        amount:
-          type: integer
-        amount_with_currency:
-          type: string
-        value:
-          type: string
-        giver:
-          $ref: '#/components/schemas/User'
-        receivers:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-        hashtag:
-          type: string
-        via:
-          type: string
-        family_amount:
-          type: integer
-    BonusResponse:
-      type: object
-      properties:
-        success:
-          type: boolean
-        result:
-          $ref: '#/components/schemas/Bonus'
-    BonusInput:
-      type: object
-      required:
-      - reason
-      properties:
-        reason:
-          type: string
-          description: The recognition text, including receiver mentions, amount, and hashtag.
-        giver_email:
-          type: string
-        parent_bonus_id:
-          type: string
     User:
       type: object
       properties:
@@ -263,15 +223,55 @@ components:
           type: string
         user_mode:
           type: string
-  responses:
-    Forbidden:
-      description: The token lacks the scope required for this operation.
-    UnprocessableEntity:
-      description: The request was well-formed but could not be processed.
-    Unauthorized:
-      description: The access token is missing or invalid.
-    NotFound:
-      description: The requested resource was not found.
+    BonusResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        result:
+          $ref: '#/components/schemas/Bonus'
+    BonusInput:
+      type: object
+      required:
+      - reason
+      properties:
+        reason:
+          type: string
+          description: The recognition text, including receiver mentions, amount, and hashtag.
+        giver_email:
+          type: string
+        parent_bonus_id:
+          type: string
+    Bonus:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        reason:
+          type: string
+        reason_html:
+          type: string
+        amount:
+          type: integer
+        amount_with_currency:
+          type: string
+        value:
+          type: string
+        giver:
+          $ref: '#/components/schemas/User'
+        receivers:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        hashtag:
+          type: string
+        via:
+          type: string
+        family_amount:
+          type: integer
   securitySchemes:
     bearerAuth:
       type: http

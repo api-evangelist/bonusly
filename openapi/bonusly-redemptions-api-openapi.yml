@@ -188,35 +188,11 @@ components:
       description: The token lacks the scope required for this operation.
     UnprocessableEntity:
       description: The request was well-formed but could not be processed.
-    Unauthorized:
-      description: The access token is missing or invalid.
     NotFound:
       description: The requested resource was not found.
+    Unauthorized:
+      description: The access token is missing or invalid.
   schemas:
-    Redemption:
-      type: object
-      properties:
-        id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        display_name:
-          type: string
-        amount:
-          type: integer
-        amount_with_currency:
-          type: string
-        reward_amount:
-          type: number
-        currency_code:
-          type: string
-        reward_type:
-          type: string
-        status:
-          type: string
-        user:
-          $ref: '#/components/schemas/User'
     User:
       type: object
       properties:
@@ -262,6 +238,30 @@ components:
           type: string
         user_mode:
           type: string
+    Redemption:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        display_name:
+          type: string
+        amount:
+          type: integer
+        amount_with_currency:
+          type: string
+        reward_amount:
+          type: number
+        currency_code:
+          type: string
+        reward_type:
+          type: string
+        status:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
   securitySchemes:
     bearerAuth:
       type: http
