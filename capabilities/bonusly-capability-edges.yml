@@ -1,0 +1,36 @@
+slug: bonusly
+provider: Bonusly
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Bonuses
+  spec_file: bonusly-bonuses-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.7
+  evidence: 'POST /bonuses ''Create a bonus''; vendor: ''lets coworkers give each other small, frequent,
+    public bonuses tied to company values'''
+  reason: Core employee recognition/reward transactions — clearly Human Capital Management, but ambiguous
+    between Compensation & Benefits (rewards) and Employee Experience (recognition/engagement), so only
+    L1 is asserted.
+- tag: Redemptions
+  spec_file: bonusly-redemptions-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: POST /custom_reward_redemptions/approve 'Approve custom reward redemptions'; POST /custom_reward_redemptions/fulfill
+    'Fulfill custom reward redemptions'
+  reason: Approval and fulfilment of employee reward redemptions (gift cards, custom rewards) is administration
+    of employee rewards, i.e. Compensation & Benefits administration.

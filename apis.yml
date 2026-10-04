@@ -230,6 +230,9 @@ apis:
   - type: APIReference
     url: https://docs.bonus.ly/reference/retrieve-company
 common:
+- type: CapabilityMap
+  url: capabilities/bonusly-capability-edges.yml
+  name: Bonusly Business Capability Map
 - type: AgenticAccess
   url: agentic-access/bonusly-agentic-access.yml
 - type: DomainSecurity
