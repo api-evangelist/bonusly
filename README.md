@@ -1,4 +1,4 @@
-# Bonusly (bonusly)
+# Bonusly
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,164 +64,136 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Bonusly is an employee recognition and rewards platform that lets coworkers give each other small, frequent, public bonuses tied to company values, which recipients redeem for gift cards, custom rewards, donations, and more. The Bonusly REST API (base `https://bonus.ly/api/v1`) exposes the same surface the product is built on - bonuses, users, the reward catalog, redemptions, awards, company settings, and analytics - authenticated with a Bearer personal access token.
+Bonusly is an employee recognition and rewards platform that lets coworkers give each other small, frequent, public bonuses tied to company values, which recipients redeem for gift cards, custom rewards, donations, and more. The Bonusly REST API (base https://bonus.ly/api/v1) exposes the same surface the product is built on - bonuses, users, the reward catalog, redemptions, awards, company settings, and analytics - authenticated with a Bearer personal access token. API access is available on paid plans; tokens are minted by admins with fine-grained read / write / administer scopes.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/bonusly/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/bonusly/refs/heads/main/apis.yml)
+**Areas:** Employee Recognition · Rewards · Employee Engagement · Human Resources · Company Culture · Bonuses · Loyalty & Incentives
 
-## Access Model
+## Bonusly on APIs.io
 
-API access is a paid feature. The free tier (capped at up to 8 users) is intended for evaluation; the REST API, HRIS integrations, and analytics come with the paid **Team** and **Organization** plans. Authentication uses a **personal access token (PAT)** passed as `Authorization: Bearer <token>`. Tokens are minted by a Global or Tech admin (from Company Settings > Integrations) or by a user from their profile's API tab, and carry fine-grained **read / write / administer** scopes per resource - calling an endpoint without the required scope returns `403 Forbidden`. Tokens can live up to 365 days. A newer public surface is also served under `https://bonus.ly/api/public`, and Bonusly ships an MCP server (announced 2026-05-22) that fronts the same REST API for AI agents.
+Everything profiled for Bonusly is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bonusly/](https://apis.io/providers/bonusly/)** — or go straight to one of the APIs or properties below.
 
-Rate limits vary by operation; exceeding one returns `429 Too Many Requests` with a `Retry-After` header, and limits can be raised on request. No fixed numeric request ceiling is published.
+### APIs (6)
 
-## Tags
+- [Bonusly Analytics API](https://apis.io/apis/bonusly/bonusly-analytics-api/) — Snapshots and lists of recognition activity for reporting.
+- [Bonusly Bonuses API](https://apis.io/apis/bonusly/bonusly-bonuses-api/) — Peer-to-peer recognition posts that carry points.
+- [Bonusly Company API](https://apis.io/apis/bonusly/bonusly-company-api/) — Company-level settings and achievements.
+- [Bonusly Redemptions API](https://apis.io/apis/bonusly/bonusly-redemptions-api/) — Conversions of earned points into rewards.
+- [Bonusly Rewards API](https://apis.io/apis/bonusly/bonusly-rewards-api/) — The catalog of gift cards, donations, and custom rewards.
+- [Bonusly Users API](https://apis.io/apis/bonusly/bonusly-users-api/) — Company members who give and receive recognition.
 
-- Employee Recognition
-- Rewards
-- Employee Engagement
-- HR
-- Company Culture
-- Bonuses
+### Published properties
 
-## Timestamps
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Created:** 2026-07-10
-- **Modified:** 2026-07-10
+#### MCP servers (1)
 
-## APIs
+Model Context Protocol servers that expose the API to agents.
 
-### Bonusly Bonuses API
+- [bonusly](https://apis.io/servers/bonusly/bonusly/)
 
-Create, list, retrieve, update, and delete bonuses - the public peer-to-peer recognition posts that carry points, a reason, hashtags, and one or more receivers. Includes an Atom feed of recent bonuses.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.bonus.ly/reference/list-bonuses](https://docs.bonus.ly/reference/list-bonuses)
-- **Base URL:** `https://bonus.ly/api/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Bonusly Agentic Access](https://apis.io/agentic-access/bonusly/bonusly-agentic-access/)
 
-- Bonuses
-- Recognition
-- Points
+#### Collections (7)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.bonus.ly/)
-- [API Reference](https://docs.bonus.ly/reference/list-bonuses)
-- [OpenAPI](openapi/bonusly-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bonusly.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bonusly.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Bonusly API](https://apis.io/collections/bonusly/open-bonusly/)
+- [Bonusly Analytics API](https://apis.io/collections/bonusly/open-bonusly-analytics-api/)
+- [Bonusly Analytics Bonuses API](https://apis.io/collections/bonusly/open-bonusly-bonuses-api/)
+- [Bonusly Analytics Company API](https://apis.io/collections/bonusly/open-bonusly-company-api/)
+- [Bonusly Analytics Redemptions API](https://apis.io/collections/bonusly/open-bonusly-redemptions-api/)
+- [Bonusly Analytics Rewards API](https://apis.io/collections/bonusly/open-bonusly-rewards-api/)
+- [Bonusly Analytics Users API](https://apis.io/collections/bonusly/open-bonusly-users-api/)
 
-### Bonusly Users API
+#### Security (2)
 
-Manage company members - create, list, retrieve, update, and deactivate users; fetch the authenticated user via `/me`; autocomplete users by name; and pull a user's bonuses, redemptions, and achievements.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs.bonus.ly/reference/list-users](https://docs.bonus.ly/reference/list-users)
-- **Base URL:** `https://bonus.ly/api/v1`
+- [Bonusly Authentication](https://apis.io/security/bonusly/bonusly-authentication/)
+- [Bonusly Domain Security](https://apis.io/security/bonusly/bonusly-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Users
-- Members
-- Provisioning
+Published plans, tiers and prices.
 
-#### Properties
+- [Bonusly Plans Pricing](https://apis.io/plans/bonusly/bonusly-plans-pricing/)
 
-- [API Reference](https://docs.bonus.ly/reference/list-users)
-- [OpenAPI](openapi/bonusly-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bonusly.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bonusly.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Bonusly Rewards API
+Published request limits.
 
-Browse the redemption catalog - the gift cards, donations, and custom company rewards a user can spend earned points on, filterable by country and reward request.
+- [Bonusly Rate Limits](https://apis.io/rate-limits/bonusly/bonusly-rate-limits/)
 
-- **Human URL:** [https://docs.bonus.ly/reference/list-rewards](https://docs.bonus.ly/reference/list-rewards)
-- **Base URL:** `https://bonus.ly/api/v1`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Rewards
-- Gift Cards
-- Catalog
+- [Bonusly Finops](https://apis.io/finops/bonusly/bonusly-finops/)
 
-#### Properties
+## Where to find this API
 
-- [API Reference](https://docs.bonus.ly/reference/list-rewards)
-- [OpenAPI](openapi/bonusly-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bonusly.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bonusly.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Bonusly Redemptions API
-
-List and retrieve redemptions where users convert earned points into rewards, create a user redemption, and manage the custom-reward redemption workflow - listing, approving, and fulfilling custom rewards.
-
-- **Human URL:** [https://docs.bonus.ly/reference/list-redemptions](https://docs.bonus.ly/reference/list-redemptions)
-- **Base URL:** `https://bonus.ly/api/v1`
-
-#### Tags
-
-- Redemptions
-- Rewards
-- Fulfillment
-
-#### Properties
-
-- [API Reference](https://docs.bonus.ly/reference/list-redemptions)
-- [OpenAPI](openapi/bonusly-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bonusly.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bonusly.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bonusly Analytics API
-
-Queue and read analytics snapshots for recognition activity - request an asynchronous snapshot of analytics users or recognition events, poll its status, and list the resulting rows for engagement reporting.
-
-- **Human URL:** [https://docs.bonus.ly/reference/analytics-healthcheck](https://docs.bonus.ly/reference/analytics-healthcheck)
-- **Base URL:** `https://bonus.ly/api/v1`
-
-#### Tags
-
-- Analytics
-- Snapshots
-- Reporting
-
-#### Properties
-
-- [API Reference](https://docs.bonus.ly/reference/analytics-healthcheck)
-- [OpenAPI](openapi/bonusly-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bonusly.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bonusly.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Bonusly Company API
-
-Retrieve and update company-level settings and read company achievements - the account configuration that governs allowances, values, and recognition behavior across the organization.
-
-- **Human URL:** [https://docs.bonus.ly/reference/retrieve-company](https://docs.bonus.ly/reference/retrieve-company)
-- **Base URL:** `https://bonus.ly/api/v1`
-
-#### Tags
-
-- Company
-- Settings
-- Administration
-
-#### Properties
-
-- [API Reference](https://docs.bonus.ly/reference/retrieve-company)
-- [OpenAPI](openapi/bonusly-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/bonusly.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bonusly.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/bonusly)
-- [LinkedIn](https://www.linkedin.com/company/bonusly)
 - [Website](https://bonusly.com)
 - [Documentation](https://docs.bonus.ly/)
-- [Plans](plans/bonusly-plans-pricing.yml)
-- [Rate Limits](rate-limits/bonusly-rate-limits.yml)
-- [Fin Ops](finops/bonusly-finops.yml)
+- [Blog](https://bonusly.com/blog)
+- [GitHub](https://github.com/bonusly)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 26.0** — emerging · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 53.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 7.9 |
+
+**Agent readiness 31.6** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 11.8** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bonusly/](https://apis.io/providers/bonusly/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bonusly: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bonusly/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
